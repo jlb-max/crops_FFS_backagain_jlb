@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://drs342at54nm"]
+[gd_scene load_steps=37 format=4 uid="uid://drs342at54nm"]
 
 [ext_resource type="PackedScene" uid="uid://bnicfp0u74mi1" path="res://scenes/components/test_scene_save_data_manager_component.tscn" id="1_d3vem"]
 [ext_resource type="PackedScene" uid="uid://dyetv1frmqe4q" path="res://scenes/components/save_level_data_component.tscn" id="2_yclkx"]
@@ -17,6 +17,7 @@
 [ext_resource type="Script" uid="uid://c4su4v14gdf1i" path="res://scenes/ui/effects_overlay.gd" id="13_yclkx"]
 [ext_resource type="Script" uid="uid://dvb88s6rvkdxg" path="res://scenes/components/field_cursor_component.gd" id="14_hk0g4"]
 [ext_resource type="PackedScene" uid="uid://hylmhugngmrk" path="res://scenes/components/crops_cursor_component.tscn" id="15_2am86"]
+[ext_resource type="PackedScene" uid="uid://mkp24b6orgb0" path="res://scenes/effects/EffectsOverlay.tscn" id="15_ww3i2"]
 [ext_resource type="Script" uid="uid://c7so78xdy58vn" path="res://scenes/components/crops_cursor_component.gd" id="16_kmqwu"]
 [ext_resource type="PackedScene" uid="uid://d2utrrlned6yw" path="res://scenes/components/placable_item_component.tscn" id="17_y2ge7"]
 [ext_resource type="PackedScene" uid="uid://cqg3k2c6eqa6m" path="res://scenes/ui/game_screen.tscn" id="18_i8s5e"]
@@ -98,6 +99,8 @@ script = ExtResource("13_yclkx")
 
 [node name="CropFields" type="Node2D" parent="."]
 
+[node name="VisualEffectsOverlay" parent="." instance=ExtResource("15_ww3i2")]
+
 [node name="FieldCursorComponent" parent="." node_paths=PackedStringArray("grass_tilemap_layer", "tilled_soil_tilemap_layer") instance=ExtResource("13_oblna")]
 script = ExtResource("14_hk0g4")
 grass_tilemap_layer = NodePath("../GameTileMap/Grass")
@@ -140,6 +143,10 @@ item_data = ExtResource("25_mgrtx")
 
 [node name="GroundLoot6" parent="." instance=ExtResource("20_my5tm")]
 position = Vector2(565, 228)
+item_data = ExtResource("26_0l4ab")
+
+[node name="GroundLoot18" parent="." instance=ExtResource("20_my5tm")]
+position = Vector2(586, 228)
 item_data = ExtResource("26_0l4ab")
 
 [node name="GroundLoot7" parent="." instance=ExtResource("20_my5tm")]

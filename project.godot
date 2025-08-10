@@ -34,6 +34,7 @@ EnvironmentManager="*res://scripts/globals/EnvironmentManager.gd"
 GameConfig="*res://scripts/globals/game_config.gd"
 LoreManager="*res://scripts/lore/lore_manager.gd"
 EffectMaps="*res://scripts/globals/effects_map.gd"
+VisualEffectsManager="*res://scripts/globals/VisualEffectsManager.gd"
 
 [display]
 

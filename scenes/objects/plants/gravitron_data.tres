@@ -15,7 +15,7 @@
 [sub_resource type="Resource" id="Resource_i3a4v"]
 script = ExtResource("1_uplo2")
 has_gravity_effect = true
-gravity_influence = 0.5
+gravity_influence = 1.0
 gravity_radius = 64.0
 gravity_sensitivity = 0.0
 wave_amplitude = 6.0
@@ -148,7 +148,7 @@ oxygen_effect = SubResource("Resource_vvv0g")
 min_heat = 0.0
 min_oxygen = 0.0
 min_gravity = 0.0
-item_name = "Nouvel Objet"
+item_name = "Gravitron"
 description = ""
 stackable = true
 metadata/_custom_type_script = "uid://b6isf51xji5ud"

@@ -61,45 +61,42 @@ func get_cell_under_mouse() -> void:
 
 
 func add_crop() -> void:
-	# --- Vérification de la distance (ne change pas) ---
+	# --- Les vérifications initiales ne changent pas ---
 	if distance >= 20.0:
 		return
 	if CropManager.is_tile_occupied(cell_position):
 		print("ACTION ANNULÉE: Une plante est déjà présente sur cette tuile.")
 		return
-	# --- Nouvelle logique Data-Driven ---
-	
-	# 1. On récupère l'item actuellement sélectionné par le joueur
-	var selected_item: ItemData = ToolManager.get_selected_item() # Assurez-vous que ToolManager renvoie bien un ItemData
-
-	# 2. On vérifie si l'item est bien une graine valide
+	var selected_item: ItemData = ToolManager.get_selected_item()
 	if not selected_item or not selected_item.plant_to_grow:
-		# Si aucun item n'est tenu, ou si l'item n'a pas de "recette" de plante, on s'arrête.
 		return
-		
-	# 3. On vérifie qu'on est bien sur de la terre labourée
 	if tilled_soil_tilemap_layer.get_cell_source_id(cell_position) == -1:
 		return
 		
-
-	# 4. On récupère la recette (le PlantData) depuis l'item
+	# --- LOGIQUE D'INSTANCIATION CORRIGÉE ---
+	
+	# 1. On récupère les données de la plante à créer.
 	var plant_recipe: PlantData = selected_item.plant_to_grow
 	
-	# 5. On instancie notre scène générique
+	# 2. On instancie la scène.
 	var crop_instance = crop_scene.instantiate()
 	
-	# 6. On injecte la recette dans la nouvelle plante pour qu'elle sache ce qu'elle est
-	crop_instance.plant_data = plant_recipe
-	crop_instance.wetness_overlay = wetness_overlay_node
-
-
-	
-	# 7. On trouve le conteneur et on ajoute la plante
+	# 3. On trouve le conteneur et on y ajoute la plante.
 	var crop_fields_node = get_parent().find_child("CropFields")
 	if crop_fields_node:
 		crop_fields_node.add_child(crop_instance)
+		
+		# On positionne la plante.
 		var local_cell_pos = tilled_soil_tilemap_layer.map_to_local(cell_position)
 		crop_instance.global_position = tilled_soil_tilemap_layer.to_global(local_cell_pos)
+		
+		crop_instance.fixed_screen_position = crop_instance.get_global_transform_with_canvas().get_origin()
+		
+		# 4. --- APPEL DE NOTRE NOUVELLE FONCTION INIT ---
+		# On initialise la plante avec toutes ses données d'un coup.
+		crop_instance.init(plant_recipe, wetness_overlay_node)
+		
+		# 5. Le reste de la logique.
 		CropManager.register_crop(cell_position, crop_instance)
 		InventoryManager.remove_item(selected_item, 1)
 		

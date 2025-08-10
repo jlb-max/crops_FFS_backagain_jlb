@@ -4,7 +4,7 @@ extends Node
 # ------------------------------------------------------------------
 # Réglages généraux
 # ------------------------------------------------------------------
-const DEBUG_ENV : bool = true # Activer / désactiver complètement le log
+const DEBUG_ENV : bool = false # Activer / désactiver complètement le log
 const DEBUG_INTERVAL : int = 1000 # Durée entre 2 affichages de log (en ms)
 
 # Pertes de base quand il n’y a AUCUNE source
