@@ -1,0 +1,215 @@
+[gd_scene load_steps=34 format=3 uid="uid://b2n80advawuqf"]
+
+[ext_resource type="Script" uid="uid://776c2axh50in" path="res://scenes/space/biofuelconverter.gd" id="1_linpj"]
+[ext_resource type="Texture2D" uid="uid://bn414amlayn0g" path="res://assets/game/objects/new planet/FUle Refinery.png" id="2_wpi7e"]
+[ext_resource type="PackedScene" uid="uid://beaog5n0dxa5y" path="res://scenes/components/interactable_component.tscn" id="3_30sdr"]
+[ext_resource type="PackedScene" uid="uid://cd0n4jrm0co4x" path="res://scenes/components/interactable_label_component.tscn" id="4_ece04"]
+[ext_resource type="PackedScene" uid="uid://dagnc3wfs7lsb" path="res://scenes/components/feed_component.tscn" id="5_hh054"]
+[ext_resource type="PackedScene" uid="uid://bf8wlp2uixhjh" path="res://machines/logic/ProcessingMachineComponent.tscn" id="6_46owf"]
+[ext_resource type="Script" uid="uid://d4l1k1io1a3n5" path="res://machines/logic/machine_recipe.gd" id="7_e20li"]
+[ext_resource type="Resource" uid="uid://cf3iscq7xj1ql" path="res://machines/recipes/corn_fuel.tres" id="8_0f81n"]
+[ext_resource type="Resource" uid="uid://dq2iwh1v7g8um" path="res://machines/recipes/tomato_fuel.tres" id="9_1u5uj"]
+[ext_resource type="Resource" uid="uid://btjwqfruejjth" path="res://machines/recipes/gravitron_fuel.tres" id="10_3rv12"]
+[ext_resource type="Resource" uid="uid://dr6u6jswlhevm" path="res://machines/recipes/corn_and_tomato_fuel.tres" id="11_nyu56"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umtkn"]
+size = Vector2(23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4a254"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j5tbp"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_admjq"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0qt1o"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_odp2i"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ehwb0"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6unb"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8uoby"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_imrhf"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(64, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iqpji"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(80, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dhuu4"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(96, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_stwcf"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(112, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dcyrv"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(128, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nmjoj"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(144, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdeur"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(160, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q8vti"]
+atlas = ExtResource("2_wpi7e")
+region = Rect2(176, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r4dl3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4a254")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j5tbp")
+}],
+"loop": false,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_admjq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0qt1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_odp2i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ehwb0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6unb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8uoby")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_imrhf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iqpji")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dhuu4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_stwcf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dcyrv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nmjoj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hdeur")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q8vti")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cnxf"]
+size = Vector2(26, 63.5)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44sq4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls05e"]
+bg_color = Color(0.336608, 0.336608, 0.336608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c25li"]
+bg_color = Color(0, 0.717647, 0.352941, 1)
+
+[node name="BioFuelConverter" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_linpj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -11.5)
+shape = SubResource("RectangleShape2D_umtkn")
+debug_color = Color(0, 0.196078, 0.713726, 0.419608)
+
+[node name="SpriteAnim" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_r4dl3")
+animation = &"on"
+autoplay = "off"
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_30sdr")]
+position = Vector2(3, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(-3, -1.25)
+shape = SubResource("RectangleShape2D_3cnxf")
+debug_color = Color(0.151871, 0.628777, 0.419654, 0.42)
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_ece04")]
+offset_left = -28.0
+offset_top = -39.0
+offset_right = -10.0
+offset_bottom = -21.0
+
+[node name="FeedComponent" parent="." instance=ExtResource("5_hh054")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeedComponent"]
+shape = SubResource("CircleShape2D_44sq4")
+debug_color = Color(0.7416, 0.580644, 0.141262, 0.419608)
+
+[node name="OutputIndicator" type="Sprite2D" parent="."]
+position = Vector2(13, -50)
+scale = Vector2(0.5, 0.5)
+
+[node name="ProcessingMachineComponent" parent="." instance=ExtResource("6_46owf")]
+accepted_recipes = Array[ExtResource("7_e20li")]([ExtResource("8_0f81n"), ExtResource("9_1u5uj"), ExtResource("10_3rv12"), ExtResource("11_nyu56")])
+machine_type = &"BioFuelConverter"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -57.0
+offset_right = 39.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_ls05e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_c25li")
+show_percentage = false
+
+[connection signal="interactable_activated" from="InteractableComponent" to="." method="_on_interactable_activated"]
+[connection signal="interactable_deactivated" from="InteractableComponent" to="." method="_on_interactable_deactivated"]

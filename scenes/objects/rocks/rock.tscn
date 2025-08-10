@@ -1,0 +1,49 @@
+[gd_scene load_steps=11 format=3 uid="uid://es2on243oiib"]
+
+[ext_resource type="Shader" uid="uid://bx4d7ah5era7e" path="res://scenes/objects/shake.gdshader" id="1_bntui"]
+[ext_resource type="Script" uid="uid://bjnluuj7m34vq" path="res://scenes/objects/rocks/rock.gd" id="2_bntui"]
+[ext_resource type="PackedScene" uid="uid://1wyysx5dad3u" path="res://scenes/components/hurt_component.tscn" id="3_8i8v8"]
+[ext_resource type="Resource" uid="uid://tm2vgs752rm6" path="res://scenes/objects/rocks/stone.tres" id="4_8i8v8"]
+[ext_resource type="PackedScene" uid="uid://vp158f76aul3" path="res://scenes/components/damage_component.tscn" id="4_wj66e"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8i8v8"]
+resource_local_to_scene = true
+shader = ExtResource("1_bntui")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bntui"]
+load_path = "res://.godot/imported/PC _ Computer - Stardew Valley - Environment - Mines.png-755395336585547a0dcdc4da4929e421.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms1l0"]
+atlas = SubResource("CompressedTexture2D_bntui")
+region = Rect2(192, 16, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ab37s"]
+radius = 4.12311
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5pald"]
+radius = 7.0
+
+[node name="Rock" type="Sprite2D"]
+material = SubResource("ShaderMaterial_8i8v8")
+position = Vector2(0, -4)
+texture = SubResource("AtlasTexture_ms1l0")
+script = ExtResource("2_bntui")
+stone_item_to_drop = ExtResource("4_8i8v8")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 2)
+shape = SubResource("CircleShape2D_ab37s")
+
+[node name="HurtComponent" parent="." instance=ExtResource("3_8i8v8")]
+required_action = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+shape = SubResource("CircleShape2D_5pald")
+debug_color = Color(0.875231, 0.248835, 0.603998, 0.42)
+
+[node name="DamageComponent" parent="." instance=ExtResource("4_wj66e")]
+max_damage = 5

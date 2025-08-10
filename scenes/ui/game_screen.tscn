@@ -1,0 +1,302 @@
+[gd_scene load_steps=31 format=3 uid="uid://cqg3k2c6eqa6m"]
+
+[ext_resource type="Script" uid="uid://rd2bq3o18fef" path="res://scenes/ui/game_screen.gd" id="1_c0p0g"]
+[ext_resource type="Theme" uid="uid://b3n8unqbh0or1" path="res://scenes/ui/game_ui_theme.tres" id="1_e2vrk"]
+[ext_resource type="PackedScene" uid="uid://xs18jhgnkkjk" path="res://scenes/ui/emotes_panel.tscn" id="2_0kkfd"]
+[ext_resource type="PackedScene" uid="uid://sljj6s2rh4dk" path="res://scenes/ui/tools_panel.tscn" id="2_gusqm"]
+[ext_resource type="PackedScene" uid="uid://ha4s6dv11ovu" path="res://scenes/ui/inventory_panel.tscn" id="3_gusqm"]
+[ext_resource type="PackedScene" uid="uid://c76fptlwg8nin" path="res://scenes/ui/day_and_night_panel.tscn" id="4_gkbp4"]
+[ext_resource type="PackedScene" uid="uid://g2g0p7afvlyh" path="res://scenes/ui/recipe_detail_window.tscn" id="6_nwa5a"]
+[ext_resource type="PackedScene" uid="uid://dx4n3qvx1lahm" path="res://machines/biofuel/bio_fuel_converter_menu.tscn" id="7_ooiym"]
+[ext_resource type="PackedScene" uid="uid://bmwckryxuprqe" path="res://machines/ordinateur/RewardMachineMenu.tscn" id="8_ce4rh"]
+[ext_resource type="PackedScene" uid="uid://c03jyijxggjcm" path="res://machines/aura production/heater_menu.tscn" id="10_dscta"]
+[ext_resource type="PackedScene" uid="uid://goc2r5pjajyj" path="res://scenes/ui/Gauge.tscn" id="10_nktmq"]
+[ext_resource type="PackedScene" uid="uid://bdlv1o20vbhrw" path="res://scenes/ui/DNAAnalyzerMenu.tscn" id="10_wwq64"]
+[ext_resource type="PackedScene" uid="uid://d0w5etu1ahnrg" path="res://scenes/ui/CodexScreen.tscn" id="11_wwq64"]
+[ext_resource type="Script" uid="uid://d3qf0vicr2aga" path="res://scenes/ui/effects_toolbar.gd" id="14_ywp2c"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_nktmq"]
+load_path = "res://.godot/imported/all_ui_sprites.png-8f790274e39e8a769e78cacf4edd15e5.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dscta"]
+atlas = SubResource("CompressedTexture2D_nktmq")
+region = Rect2(728, 696, 16, 16)
+
+[sub_resource type="Gradient" id="Gradient_nktmq"]
+colors = PackedColorArray(0.956863, 0, 0, 1, 0, 1, 0.164706, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dscta"]
+gradient = SubResource("Gradient_nktmq")
+width = 256
+height = 16
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wwq64"]
+load_path = "res://.godot/imported/HUD_icons.png-af672c15e734070502ba593232f03fbc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ywp2c"]
+atlas = SubResource("CompressedTexture2D_wwq64")
+region = Rect2(72, 320, 416, 400)
+
+[sub_resource type="Gradient" id="Gradient_wwq64"]
+offsets = PackedFloat32Array(0, 0.503205, 1)
+colors = PackedColorArray(0.625619, 0, 0, 1, 0.00171615, 0.112368, 0.541134, 1, 0.0290654, 0.36635, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ywp2c"]
+gradient = SubResource("Gradient_wwq64")
+width = 256
+height = 16
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pwika"]
+load_path = "res://.godot/imported/HUD_icons.png-af672c15e734070502ba593232f03fbc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4gsc8"]
+atlas = SubResource("CompressedTexture2D_pwika")
+region = Rect2(592, 240, 240, 520)
+
+[sub_resource type="Gradient" id="Gradient_pwika"]
+offsets = PackedFloat32Array(0, 0.400641, 0.717949, 1)
+colors = PackedColorArray(0.173061, 7.9897e-06, 0.735798, 1, 0.630866, 6.23775e-05, 0.52107, 1, 0.577424, 0.333067, 0.0490906, 1, 0.988235, 0.85098, 0.0823529, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4gsc8"]
+gradient = SubResource("Gradient_pwika")
+width = 256
+height = 16
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4pji1"]
+load_path = "res://.godot/imported/HUD_icons.png-af672c15e734070502ba593232f03fbc.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v3mdj"]
+atlas = SubResource("CompressedTexture2D_4pji1")
+region = Rect2(1000, 248, 352, 480)
+
+[sub_resource type="Gradient" id="Gradient_4pji1"]
+offsets = PackedFloat32Array(0, 0.503205, 1)
+colors = PackedColorArray(0.956863, 0, 0, 1, 0.630866, 6.23775e-05, 0.52107, 1, 0.380392, 0, 0.545098, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v3mdj"]
+gradient = SubResource("Gradient_4pji1")
+width = 256
+height = 16
+
+[node name="GameScreen" type="CanvasLayer"]
+script = ExtResource("1_c0p0g")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_e2vrk")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="EmotesPanel" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_0kkfd")]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="ToolsPanel" parent="MarginContainer" instance=ExtResource("2_gusqm")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+
+[node name="DayAndNightPanel" parent="MarginContainer" instance=ExtResource("4_gkbp4")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="InventoryPanel" parent="." node_paths=PackedStringArray("recipe_detail_window") instance=ExtResource("3_gusqm")]
+z_index = 10
+offset_left = -11.0
+offset_top = -11.0
+offset_right = 11.0
+offset_bottom = 11.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 1
+recipe_detail_window = NodePath("../RecipeDetailWindow")
+
+[node name="RecipeDetailWindow" parent="." node_paths=PackedStringArray("inventory_panel") instance=ExtResource("6_nwa5a")]
+visible = false
+inventory_panel = NodePath("../InventoryPanel")
+
+[node name="BioFuelConverterMenu" parent="." instance=ExtResource("7_ooiym")]
+visible = false
+
+[node name="RewardMachineMenu" parent="." instance=ExtResource("8_ce4rh")]
+visible = false
+
+[node name="DnaAnalyzerMenu" parent="." instance=ExtResource("10_wwq64")]
+visible = false
+
+[node name="CodexScreen" parent="." instance=ExtResource("11_wwq64")]
+visible = false
+
+[node name="HeaterMenu" parent="." instance=ExtResource("10_dscta")]
+visible = false
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+
+[node name="HUDContainer" type="MarginContainer" parent="."]
+offset_right = 459.0
+offset_bottom = 58.0
+
+[node name="HBox" type="HBoxContainer" parent="HUDContainer"]
+custom_minimum_size = Vector2(120, 15)
+layout_mode = 2
+size_flags_vertical = 0
+
+[node name="GaugeHealth" parent="HUDContainer/HBox" instance=ExtResource("10_nktmq")]
+layout_mode = 2
+size_flags_vertical = 0
+tooltip_text = "Health"
+
+[node name="Icon" parent="HUDContainer/HBox/GaugeHealth" index="0"]
+texture = SubResource("AtlasTexture_dscta")
+
+[node name="Bar" parent="HUDContainer/HBox/GaugeHealth" index="1"]
+texture_progress = SubResource("GradientTexture2D_dscta")
+
+[node name="GaugeOxygen" parent="HUDContainer/HBox" instance=ExtResource("10_nktmq")]
+layout_mode = 2
+tooltip_text = "Oxygen"
+
+[node name="Icon" parent="HUDContainer/HBox/GaugeOxygen" index="0"]
+texture = SubResource("AtlasTexture_ywp2c")
+expand_mode = 2
+
+[node name="Bar" parent="HUDContainer/HBox/GaugeOxygen" index="1"]
+texture_progress = SubResource("GradientTexture2D_ywp2c")
+
+[node name="GaugeHeat" parent="HUDContainer/HBox" instance=ExtResource("10_nktmq")]
+layout_mode = 2
+tooltip_text = "Body Temperature"
+
+[node name="Icon" parent="HUDContainer/HBox/GaugeHeat" index="0"]
+texture = SubResource("AtlasTexture_4gsc8")
+expand_mode = 2
+
+[node name="Bar" parent="HUDContainer/HBox/GaugeHeat" index="1"]
+texture_progress = SubResource("GradientTexture2D_4gsc8")
+
+[node name="GaugeGravity" parent="HUDContainer/HBox" instance=ExtResource("10_nktmq")]
+layout_mode = 2
+tooltip_text = "Gravity Balance"
+
+[node name="Icon" parent="HUDContainer/HBox/GaugeGravity" index="0"]
+texture = SubResource("AtlasTexture_v3mdj")
+expand_mode = 2
+
+[node name="Bar" parent="HUDContainer/HBox/GaugeGravity" index="1"]
+texture_progress = SubResource("GradientTexture2D_v3mdj")
+
+[node name="EffectsToolbar" type="PanelContainer" parent="HUDContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+mouse_filter = 1
+script = ExtResource("14_ywp2c")
+
+[node name="Root" type="VBoxContainer" parent="HUDContainer/EffectsToolbar"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Buttons" type="HBoxContainer" parent="HUDContainer/EffectsToolbar/Root"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+
+[node name="CarteOnOff" type="Button" parent="HUDContainer/EffectsToolbar/Root/Buttons"]
+layout_mode = 2
+text = "carte ON/OFF"
+
+[node name="Tout" type="Button" parent="HUDContainer/EffectsToolbar/Root/Buttons"]
+layout_mode = 2
+text = "Tout
+"
+
+[node name="Oxygène" type="Button" parent="HUDContainer/EffectsToolbar/Root/Buttons"]
+layout_mode = 2
+text = "Oxygène"
+
+[node name="Lumière" type="Button" parent="HUDContainer/EffectsToolbar/Root/Buttons"]
+layout_mode = 2
+text = "Lumière"
+
+[node name="Chaleur" type="Button" parent="HUDContainer/EffectsToolbar/Root/Buttons"]
+layout_mode = 2
+text = "Chaleur"
+
+[node name="Gravité" type="Button" parent="HUDContainer/EffectsToolbar/Root/Buttons"]
+layout_mode = 2
+text = "Gravité"
+
+[node name="Legend" type="HBoxContainer" parent="HUDContainer/EffectsToolbar/Root"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="ColorRect" type="ColorRect" parent="HUDContainer/EffectsToolbar/Root/Legend"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(0.0862745, 0.505882, 1, 1)
+
+[node name="Label" type="Label" parent="HUDContainer/EffectsToolbar/Root/Legend"]
+layout_mode = 2
+text = "oxygène"
+
+[node name="ColorRect2" type="ColorRect" parent="HUDContainer/EffectsToolbar/Root/Legend"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(1, 1, 0.494118, 1)
+
+[node name="Label2" type="Label" parent="HUDContainer/EffectsToolbar/Root/Legend"]
+layout_mode = 2
+text = "lumière"
+
+[node name="ColorRect3" type="ColorRect" parent="HUDContainer/EffectsToolbar/Root/Legend"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(1, 0.411765, 0.294118, 1)
+
+[node name="Label3" type="Label" parent="HUDContainer/EffectsToolbar/Root/Legend"]
+layout_mode = 2
+text = "chaleur"
+
+[node name="ColorRect4" type="ColorRect" parent="HUDContainer/EffectsToolbar/Root/Legend"]
+custom_minimum_size = Vector2(16, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+color = Color(1, 0.286275, 1, 1)
+
+[node name="Label4" type="Label" parent="HUDContainer/EffectsToolbar/Root/Legend"]
+layout_mode = 2
+text = "gravité"
+
+[node name="ScreenFade" type="ColorRect" parent="." groups=["screen_fade"]]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[editable path="HUDContainer/HBox/GaugeHealth"]
+[editable path="HUDContainer/HBox/GaugeOxygen"]
+[editable path="HUDContainer/HBox/GaugeHeat"]
+[editable path="HUDContainer/HBox/GaugeGravity"]

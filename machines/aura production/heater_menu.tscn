@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://c03jyijxggjcm"]
+
+[ext_resource type="Theme" uid="uid://b3n8unqbh0or1" path="res://scenes/ui/game_ui_theme.tres" id="1_b6tw8"]
+[ext_resource type="Script" uid="uid://c0n115lb8wuin" path="res://machines/aura production/heater_menu.gd" id="2_skngh"]
+[ext_resource type="Resource" uid="uid://1sb6bql4p1as" path="res://machines/biofuel/biofuel.tres" id="3_06w16"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_06w16"]
+load_path = "res://.godot/imported/milk_items.png-11376c6361e554f0f599c761c7fa77de.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_niugj"]
+atlas = SubResource("CompressedTexture2D_06w16")
+region = Rect2(48, 144, 16, 16)
+
+[node name="HeaterMenu" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 100)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -128.5
+offset_top = -31.5
+offset_right = 128.5
+offset_bottom = 31.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_b6tw8")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("2_skngh")
+biofuel_item_resource = ExtResource("3_06w16")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "chauffage
+
+biofuel necessaire
+"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = SubResource("AtlasTexture_niugj")
+
+[node name="CountLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "disponible: "
+
+[node name="FeedButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "ajouter"
+
+[node name="CancelButton" type="Button" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "fermer"

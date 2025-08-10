@@ -1,0 +1,37 @@
+[gd_scene load_steps=4 format=3 uid="uid://csuuoje5imy1b"]
+
+[ext_resource type="Script" uid="uid://c44t7deecx6i4" path="res://machines/logic/machine_recipe_slot.gd" id="1_eb5jc"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_eb5jc"]
+load_path = "res://.godot/imported/all_ui_sprites.png-8f790274e39e8a769e78cacf4edd15e5.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vk5i4"]
+atlas = SubResource("CompressedTexture2D_eb5jc")
+region = Rect2(48, 512, 16, 16)
+
+[node name="MachineRecipeSlot" type="HBoxContainer"]
+offset_right = 298.0
+offset_bottom = 40.0
+script = ExtResource("1_eb5jc")
+
+[node name="InputItemsContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="Arrow" type="TextureRect" parent="."]
+layout_mode = 2
+texture = SubResource("AtlasTexture_vk5i4")
+
+[node name="OutputItemsContainer" type="HBoxContainer" parent="."]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+
+[node name="ConvertButton" type="Button" parent="."]
+layout_mode = 2
+text = "créer"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4

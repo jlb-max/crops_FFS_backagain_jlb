@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="MachineRecipe" load_steps=7 format=3 uid="uid://caa2cq7re65fv"]
+
+[ext_resource type="Script" uid="uid://d31hsogdinq" path="res://crafting/ingredient.gd" id="1_hgiid"]
+[ext_resource type="Resource" uid="uid://cu13fr1wekvwu" path="res://scenes/objects/plants/star_fruit.tres" id="2_w66o2"]
+[ext_resource type="Resource" uid="uid://1sb6bql4p1as" path="res://machines/biofuel/biofuel.tres" id="3_065ud"]
+[ext_resource type="Script" uid="uid://d4l1k1io1a3n5" path="res://machines/logic/machine_recipe.gd" id="4_dqwpc"]
+
+[sub_resource type="Resource" id="Resource_ty85q"]
+script = ExtResource("1_hgiid")
+item = ExtResource("2_w66o2")
+quantity = 1
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[sub_resource type="Resource" id="Resource_bh4ph"]
+script = ExtResource("1_hgiid")
+item = ExtResource("3_065ud")
+quantity = 1
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[resource]
+script = ExtResource("4_dqwpc")
+unlock_condition = 1
+inputs = Array[ExtResource("1_hgiid")]([SubResource("Resource_ty85q")])
+outputs = Array[ExtResource("1_hgiid")]([SubResource("Resource_bh4ph")])
+processing_time_seconds = 10.0
+machine_type = &"BioFuelConverter"
+metadata/_custom_type_script = "uid://d4l1k1io1a3n5"

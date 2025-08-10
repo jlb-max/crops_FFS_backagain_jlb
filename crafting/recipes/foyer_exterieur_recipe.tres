@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=7 format=3 uid="uid://02sucec7d15f"]
+
+[ext_resource type="Script" uid="uid://d31hsogdinq" path="res://crafting/ingredient.gd" id="1_20po5"]
+[ext_resource type="Resource" uid="uid://cq5ne6xby20em" path="res://scenes/objects/craftables/planche.tres" id="2_he3yf"]
+[ext_resource type="Resource" uid="uid://br5u8bmue2efe" path="res://scenes/objects/craftables/foyer_exterieur.tres" id="3_33typ"]
+[ext_resource type="Script" uid="uid://c6md6w4rnuthp" path="res://crafting/crafting_recipe.gd" id="4_1rc0v"]
+
+[sub_resource type="Resource" id="Resource_8p5ci"]
+script = ExtResource("1_20po5")
+item = ExtResource("2_he3yf")
+quantity = 5
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[sub_resource type="Resource" id="Resource_oq3hh"]
+script = ExtResource("1_20po5")
+item = ExtResource("3_33typ")
+quantity = 1
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[resource]
+script = ExtResource("4_1rc0v")
+outputs = Array[ExtResource("1_20po5")]([SubResource("Resource_oq3hh")])
+ingredients = Array[ExtResource("1_20po5")]([SubResource("Resource_8p5ci")])
+recipe_id = &"foyer"
+unlock_condition = 0
+metadata/_custom_type_script = "uid://c6md6w4rnuthp"

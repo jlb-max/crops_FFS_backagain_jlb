@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=3 uid="uid://bdlv1o20vbhrw"]
+
+[ext_resource type="Theme" uid="uid://b3n8unqbh0or1" path="res://scenes/ui/game_ui_theme.tres" id="1_3hhdg"]
+[ext_resource type="Script" uid="uid://dykmsbd5obgw8" path="res://scenes/ui/dna_analyzer_menu.gd" id="1_yrtt3"]
+
+[node name="DnaAnalyzerMenu" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -68.0
+offset_top = -98.5
+offset_right = 68.0
+offset_bottom = 98.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme = ExtResource("1_3hhdg")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("1_yrtt3")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Séquenceur ADN"
+
+[node name="AnalyzableItemsList" type="ItemList" parent="VBoxContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="AnalyzeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "séquencer l'ADN"
+
+[node name="CloseButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "fermer"

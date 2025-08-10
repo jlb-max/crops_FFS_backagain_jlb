@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cs76q1aorqlpm"]
+
+[ext_resource type="Texture2D" uid="uid://c2xngbojvrgo7" path="res://assets/game/objects/Items/farming_plants_items.png" id="1_qvuc3"]
+[ext_resource type="Resource" uid="uid://c4kqwscknxc4" path="res://scenes/objects/plants/gravitron_data.tres" id="2_8t6m4"]
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="3_tjcuf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydtw6"]
+atlas = ExtResource("1_qvuc3")
+region = Rect2(0, 144, 16, 16)
+
+[resource]
+script = ExtResource("3_tjcuf")
+damage = 1
+action_type = 3
+plant_to_grow = ExtResource("2_8t6m4")
+source_plant_data_path = ""
+item_name = "Graine de Gravitron"
+description = ""
+icon = SubResource("AtlasTexture_ydtw6")
+stackable = true

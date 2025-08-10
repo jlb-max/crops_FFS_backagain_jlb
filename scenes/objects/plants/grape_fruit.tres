@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://canl5ygwmvu4m"]
+
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="2_jlvxp"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ilovc"]
+load_path = "res://.godot/imported/Fall Crops.png-001b354ec72995be9c709a318d6fd7f5.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uv6vv"]
+atlas = SubResource("CompressedTexture2D_ilovc")
+region = Rect2(112, 80, 16, 16)
+
+[resource]
+script = ExtResource("2_jlvxp")
+damage = 1
+action_type = 0
+source_plant_data_path = ""
+item_name = "Raisin"
+description = ""
+icon = SubResource("AtlasTexture_uv6vv")
+stackable = true
+metadata/_custom_type_script = "uid://bpxw848fbm6jv"

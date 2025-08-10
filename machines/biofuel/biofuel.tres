@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://1sb6bql4p1as"]
+
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="1_q2x2b"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_q2x2b"]
+load_path = "res://.godot/imported/items_spritesheet.png-d6a4af75a5fbf11c333a8bb47c6d7252.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tl32n"]
+atlas = SubResource("CompressedTexture2D_q2x2b")
+region = Rect2(112, 160, 16, 16)
+
+[resource]
+script = ExtResource("1_q2x2b")
+damage = 1
+action_type = 0
+source_plant_data_path = ""
+item_name = "Biocarburant"
+description = ""
+icon = SubResource("AtlasTexture_tl32n")
+stackable = true
+metadata/_custom_type_script = "uid://bpxw848fbm6jv"

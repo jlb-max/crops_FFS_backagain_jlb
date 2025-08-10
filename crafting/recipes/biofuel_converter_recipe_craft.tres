@@ -1,0 +1,33 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=9 format=3 uid="uid://bihe1u7wj15ad"]
+
+[ext_resource type="Script" uid="uid://d31hsogdinq" path="res://crafting/ingredient.gd" id="1_iiv05"]
+[ext_resource type="Script" uid="uid://c6md6w4rnuthp" path="res://crafting/crafting_recipe.gd" id="2_8ggue"]
+[ext_resource type="Resource" uid="uid://tm2vgs752rm6" path="res://scenes/objects/rocks/stone.tres" id="2_l6n5i"]
+[ext_resource type="Resource" uid="uid://cq5ne6xby20em" path="res://scenes/objects/craftables/planche.tres" id="3_gb8ge"]
+[ext_resource type="Resource" uid="uid://dvdbv6ptf3cau" path="res://machines/biofuel/biofuel_converter.tres" id="4_egunl"]
+
+[sub_resource type="Resource" id="Resource_feow1"]
+script = ExtResource("1_iiv05")
+item = ExtResource("2_l6n5i")
+quantity = 5
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[sub_resource type="Resource" id="Resource_j1fgo"]
+script = ExtResource("1_iiv05")
+item = ExtResource("3_gb8ge")
+quantity = 10
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[sub_resource type="Resource" id="Resource_gfydb"]
+script = ExtResource("1_iiv05")
+item = ExtResource("4_egunl")
+quantity = 1
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[resource]
+script = ExtResource("2_8ggue")
+outputs = Array[ExtResource("1_iiv05")]([SubResource("Resource_gfydb")])
+ingredients = Array[ExtResource("1_iiv05")]([SubResource("Resource_feow1"), SubResource("Resource_j1fgo")])
+recipe_id = &"biofuelconverter"
+unlock_condition = 1
+metadata/_custom_type_script = "uid://c6md6w4rnuthp"

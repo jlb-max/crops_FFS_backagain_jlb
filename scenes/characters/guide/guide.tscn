@@ -1,0 +1,87 @@
+[gd_scene load_steps=18 format=3 uid="uid://b6snwhyvyjtcb"]
+
+[ext_resource type="Script" uid="uid://bwoptsis24mv3" path="res://scenes/characters/guide/guide.gd" id="1_pdv8u"]
+[ext_resource type="Shader" uid="uid://dhasj5tbujfv6" path="res://scenes/characters/guide/replace_color.gdshader" id="1_rl4q2"]
+[ext_resource type="Resource" uid="uid://dbj6edmtqr777" path="res://scenes/objects/hoe.tres" id="2_rdkl4"]
+[ext_resource type="PackedScene" uid="uid://beaog5n0dxa5y" path="res://scenes/components/interactable_component.tscn" id="3_g6y3g"]
+[ext_resource type="Resource" uid="uid://r0mmp3aausrk" path="res://scenes/objects/watering_can.tres" id="3_tq85q"]
+[ext_resource type="Resource" uid="uid://dlxrfh2t0atl7" path="res://scenes/objects/plants/corn_seed.tres" id="4_l3cl1"]
+[ext_resource type="PackedScene" uid="uid://cd0n4jrm0co4x" path="res://scenes/components/interactable_label_component.tscn" id="4_yvxhl"]
+[ext_resource type="Resource" uid="uid://bclleevjva4wm" path="res://scenes/objects/plants/tomato_seed.tres" id="5_temh0"]
+[ext_resource type="Resource" uid="uid://dfryw5ro6pd" path="res://scenes/objects/axe.tres" id="6_6tcs3"]
+[ext_resource type="Texture2D" uid="uid://bqqvae5xn2jh2" path="res://assets/game/characters/npc_idle.png" id="8_rdkl4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yvxhl"]
+shader = ExtResource("1_rl4q2")
+shader_parameter/original_0 = Color(0.360784, 0.305882, 0.572549, 1)
+shader_parameter/original_1 = Color(0.462745, 0.427451, 0.666667, 1)
+shader_parameter/replace_0 = Color(0.470588, 0.823529, 0, 1)
+shader_parameter/replace_1 = Color(0, 0.360784, 0.94902, 1)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tq85q"]
+atlas = ExtResource("8_rdkl4")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3cl1"]
+atlas = ExtResource("8_rdkl4")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_temh0"]
+atlas = ExtResource("8_rdkl4")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6tcs3"]
+atlas = ExtResource("8_rdkl4")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_temh0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tq85q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l3cl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_temh0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6tcs3")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yvxhl"]
+radius = 16.0312
+
+[node name="Guide" type="Node2D"]
+script = ExtResource("1_pdv8u")
+hoe_item = ExtResource("2_rdkl4")
+watering_can_item = ExtResource("3_tq85q")
+corn_seed_item = ExtResource("4_l3cl1")
+tomato_seed_item = ExtResource("5_temh0")
+axe_item = ExtResource("6_6tcs3")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+material = SubResource("ShaderMaterial_yvxhl")
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_temh0")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.26069
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_g6y3g")]
+position = Vector2(3, -7)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(-3, 0)
+shape = SubResource("CircleShape2D_yvxhl")
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_yvxhl")]
+offset_left = -26.0
+offset_top = -33.0
+offset_right = -8.0
+offset_bottom = -15.0

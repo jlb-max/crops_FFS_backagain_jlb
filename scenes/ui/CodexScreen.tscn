@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://d0w5etu1ahnrg"]
+
+[ext_resource type="Theme" uid="uid://b3n8unqbh0or1" path="res://scenes/ui/game_ui_theme.tres" id="1_jpsqe"]
+[ext_resource type="Script" uid="uid://cljot3i28wvus" path="res://scenes/ui/codex_screen.gd" id="1_krrdc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jpsqe"]
+bg_color = Color(0.14902, 0.231373, 0.6, 1)
+
+[sub_resource type="Theme" id="Theme_72ts5"]
+HSplitContainer/styles/split_bar_background = SubResource("StyleBoxFlat_jpsqe")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lx1kg"]
+bg_color = Color(0.326108, 0.671962, 0.605625, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 1
+corner_radius_top_right = 1
+corner_radius_bottom_right = 1
+corner_radius_bottom_left = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n0o0x"]
+bg_color = Color(0.325441, 0.325441, 0.325441, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_asw6k"]
+
+[sub_resource type="Gradient" id="Gradient_jpsqe"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.187176, 0.187176, 0.187176, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_72ts5"]
+gradient = SubResource("Gradient_jpsqe")
+width = 50
+
+[sub_resource type="Gradient" id="Gradient_lx1kg"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0, 0.690196, 0.839216, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_01dqj"]
+gradient = SubResource("Gradient_lx1kg")
+width = 50
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_72ts5"]
+bg_color = Color(0.6, 0.192157, 0.6, 0.811765)
+
+[node name="CodexScreen" type="HSplitContainer"]
+custom_minimum_size = Vector2(600, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -120.0
+offset_top = -71.0
+offset_right = 120.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme = SubResource("Theme_72ts5")
+theme_override_styles/split_bar_background = SubResource("StyleBoxFlat_lx1kg")
+script = ExtResource("1_krrdc")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+theme = ExtResource("1_jpsqe")
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "Codex Genetique"
+
+[node name="PlantList" type="ItemList" parent="VBoxContainer"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/hovered = SubResource("StyleBoxFlat_n0o0x")
+theme_override_styles/selected = SubResource("StyleBoxFlat_asw6k")
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(50, 100)
+layout_mode = 2
+theme = ExtResource("1_jpsqe")
+theme_type_variation = &"DarkWoodPanel"
+
+[node name="PlantNameLabel" type="Label" parent="VBoxContainer2"]
+layout_mode = 2
+
+[node name="SequencingProgressBar" type="TextureProgressBar" parent="VBoxContainer2"]
+layout_mode = 2
+texture_under = SubResource("GradientTexture1D_72ts5")
+texture_progress = SubResource("GradientTexture1D_01dqj")
+
+[node name="LoreTextLabel" type="RichTextLabel" parent="VBoxContainer2"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_vertical = 3
+theme = ExtResource("1_jpsqe")
+theme_type_variation = &"DarkWoodPanel"
+theme_override_styles/background = SubResource("StyleBoxFlat_72ts5")

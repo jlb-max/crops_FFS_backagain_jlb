@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://c8ph32wom3n6e"]
+
+[ext_resource type="Texture2D" uid="uid://c2xngbojvrgo7" path="res://assets/game/objects/Items/farming_plants_items.png" id="1_px6id"]
+[ext_resource type="Resource" uid="uid://c2jrt2vbc7xig" path="res://scenes/objects/plants/eggplant_data.tres" id="2_rl6by"]
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="3_gtvkr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtvkr"]
+atlas = ExtResource("1_px6id")
+region = Rect2(0, 80, 16, 16)
+
+[resource]
+script = ExtResource("3_gtvkr")
+damage = 1
+action_type = 3
+plant_to_grow = ExtResource("2_rl6by")
+source_plant_data_path = ""
+item_name = "Graine d'Aubergine"
+description = ""
+icon = SubResource("AtlasTexture_gtvkr")
+stackable = true

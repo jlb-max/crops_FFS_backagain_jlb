@@ -1,0 +1,41 @@
+[gd_scene load_steps=3 format=3 uid="uid://dx4n3qvx1lahm"]
+
+[ext_resource type="Script" uid="uid://dyvlvq5em23ek" path="res://machines/biofuel/bio_fuel_converter_menu.gd" id="1_4jr2b"]
+[ext_resource type="Theme" uid="uid://b3n8unqbh0or1" path="res://scenes/ui/game_ui_theme.tres" id="1_t2igm"]
+
+[node name="BioFuelConverterMenu" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -157.0
+offset_top = -133.5
+offset_right = 157.0
+offset_bottom = 133.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_t2igm")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("1_4jr2b")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "fabrications"
+horizontal_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ItemGrid" type="GridContainer" parent="VBoxContainer/ScrollContainer"]
+custom_minimum_size = Vector2(300, 200)
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "fermer"

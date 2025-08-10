@@ -1,0 +1,66 @@
+[gd_scene load_steps=11 format=3 uid="uid://dhwjejbw42lla"]
+
+[ext_resource type="Script" uid="uid://brkyj30allxtg" path="res://machines/aura production/machine.gd" id="1_8yct8"]
+[ext_resource type="Resource" uid="uid://1sb6bql4p1as" path="res://machines/biofuel/biofuel.tres" id="2_7upbk"]
+[ext_resource type="Script" uid="uid://bt6illphij7k6" path="res://scripts/globals/HeatEffectData.gd" id="3_7upbk"]
+[ext_resource type="Texture2D" uid="uid://b01y4at8eh5ya" path="res://assets/game/objects/new planet/PC _ Computer - Stardew Valley - Tilesets - Craftables.png" id="3_js4vs"]
+[ext_resource type="PackedScene" uid="uid://o3ukqh2xdtua" path="res://machines/aura production/MachineAura.tscn" id="4_c7ukt"]
+
+[sub_resource type="Resource" id="Resource_js4vs"]
+script = ExtResource("3_7upbk")
+emits_heat = true
+heat_power = 1.0
+heat_radius = 64.0
+burn_power = 0.0
+heat_sensitivity = 0.0
+metadata/_custom_type_script = "uid://bt6illphij7k6"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxyq2"]
+atlas = ExtResource("3_js4vs")
+region = Rect2(80, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pk5n"]
+atlas = ExtResource("3_js4vs")
+region = Rect2(96, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghvdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxyq2")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pk5n")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4vf0"]
+
+[node name="MachineHeater" type="Area2D"]
+collision_layer = 4
+script = ExtResource("1_8yct8")
+biofuel_item = ExtResource("2_7upbk")
+heat_effect_data = SubResource("Resource_js4vs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ghvdu")
+animation = &"off"
+frame_progress = 0.283549
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u4vf0")
+
+[node name="ConsumptionTimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="MachineAura" parent="." instance=ExtResource("4_c7ukt")]
+
+[connection signal="timeout" from="ConsumptionTimer" to="." method="_on_consumption_timer_timeout"]

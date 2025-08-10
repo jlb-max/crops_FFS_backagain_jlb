@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="MachineRecipe" load_steps=5 format=3 uid="uid://dffcsrdo7o7di"]
+
+[ext_resource type="Script" uid="uid://d31hsogdinq" path="res://crafting/ingredient.gd" id="1_qw6vx"]
+[ext_resource type="Resource" uid="uid://1sb6bql4p1as" path="res://machines/biofuel/biofuel.tres" id="2_ho0qq"]
+[ext_resource type="Script" uid="uid://d4l1k1io1a3n5" path="res://machines/logic/machine_recipe.gd" id="2_ubr04"]
+
+[sub_resource type="Resource" id="Resource_j4vs3"]
+script = ExtResource("1_qw6vx")
+item = ExtResource("2_ho0qq")
+quantity = 1
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[resource]
+script = ExtResource("2_ubr04")
+unlock_condition = 0
+inputs = Array[ExtResource("1_qw6vx")]([SubResource("Resource_j4vs3")])
+outputs = Array[ExtResource("1_qw6vx")]([])
+processing_time_seconds = 60.0
+machine_type = &"HeaterMachine"
+metadata/_custom_type_script = "uid://d4l1k1io1a3n5"

@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://cuufl813yry45"]
+
+[ext_resource type="Resource" uid="uid://cncwqou72y0pw" path="res://scenes/objects/plants/tournesol_data.tres" id="1_hdy68"]
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="2_xocsa"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hdy68"]
+load_path = "res://.godot/imported/Crops.png-8068eed9c06aa3f828d9a4d0b8ed9295.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0duj0"]
+atlas = SubResource("CompressedTexture2D_hdy68")
+region = Rect2(160, 80, 16, 16)
+
+[resource]
+script = ExtResource("2_xocsa")
+damage = 1
+action_type = 3
+plant_to_grow = ExtResource("1_hdy68")
+source_plant_data_path = ""
+item_name = "Graine de Tournesol"
+description = ""
+icon = SubResource("AtlasTexture_0duj0")
+stackable = true

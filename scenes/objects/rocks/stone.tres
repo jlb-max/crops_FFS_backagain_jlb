@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://tm2vgs752rm6"]
+
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="1_1sn6g"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1sn6g"]
+load_path = "res://.godot/imported/items_spritesheet.png-d6a4af75a5fbf11c333a8bb47c6d7252.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hg6yt"]
+atlas = SubResource("CompressedTexture2D_1sn6g")
+region = Rect2(48, 80, 16, 16)
+
+[resource]
+script = ExtResource("1_1sn6g")
+damage = 1
+action_type = 0
+source_plant_data_path = ""
+item_name = "Pierre"
+description = ""
+icon = SubResource("AtlasTexture_hg6yt")
+stackable = true
+metadata/_custom_type_script = "uid://bpxw848fbm6jv"

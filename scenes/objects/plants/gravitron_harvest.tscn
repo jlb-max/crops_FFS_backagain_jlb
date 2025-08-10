@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsjfhjv8jer6a"]
+
+[ext_resource type="PackedScene" uid="uid://c3myk53pl1vm" path="res://scenes/components/collectable_component.tscn" id="1_6k7ut"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ru7wh"]
+load_path = "res://.godot/imported/farming_plants_items.png-f2537ff9fd91f24d499afe20f89ea626.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puqw6"]
+atlas = SubResource("CompressedTexture2D_ru7wh")
+region = Rect2(16, 64, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1tax0"]
+radius = 7.0
+
+[node name="TomatoHarvest" type="Sprite2D"]
+top_level = true
+texture = SubResource("AtlasTexture_puqw6")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("1_6k7ut")]
+collision_layer = 160
+collectable_name = "tomato"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_1tax0")

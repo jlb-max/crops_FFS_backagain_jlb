@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://fs7qk5efetyr"]
+
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="1_7858p"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7858p"]
+load_path = "res://.godot/imported/tools_n_material_items.png-8a044dcc96f8c3e02b83f9c507764188.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nljl"]
+atlas = SubResource("CompressedTexture2D_7858p")
+region = Rect2(32, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_7858p")
+damage = 1
+action_type = 5
+item_name = "Houe"
+description = ""
+icon = SubResource("AtlasTexture_6nljl")
+stackable = true
+metadata/_custom_type_script = "uid://bpxw848fbm6jv"

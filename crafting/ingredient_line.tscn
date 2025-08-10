@@ -1,0 +1,17 @@
+[gd_scene load_steps=2 format=3 uid="uid://bytuoj6kw5qe8"]
+
+[ext_resource type="Script" uid="uid://dgxwfjfemw275" path="res://crafting/ingredient_line.gd" id="1_6hw8e"]
+
+[node name="IngredientLine" type="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+offset_right = 5.0
+offset_bottom = 27.0
+script = ExtResource("1_6hw8e")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="QuantityLabel" type="Label" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3

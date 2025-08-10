@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://g2g0p7afvlyh"]
+
+[ext_resource type="Theme" uid="uid://b3n8unqbh0or1" path="res://scenes/ui/game_ui_theme.tres" id="1_7a2fq"]
+[ext_resource type="Script" uid="uid://cm5hylc4h4yu1" path="res://scenes/ui/RecipeDetailWindow.gd" id="1_rr0bq"]
+
+[node name="RecipeDetailWindow" type="PanelContainer"]
+theme = ExtResource("1_7a2fq")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("1_rr0bq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "construction:"
+
+[node name="OutputItemsList" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="IngredientsLabel" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "ingredients:"
+
+[node name="IngredientsList" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CraftButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "construire"
+
+[node name="CloseButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "fermer"

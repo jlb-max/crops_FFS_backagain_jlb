@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2utrrlned6yw"]
+
+[ext_resource type="Script" uid="uid://clikoisy10dgn" path="res://scenes/components/placable_item_component.gd" id="1_dpi4s"]
+
+[node name="PlacableItemComponent" type="Node"]
+script = ExtResource("1_dpi4s")

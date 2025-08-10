@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dvdbv6ptf3cau"]
+
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="1_li37i"]
+[ext_resource type="PackedScene" uid="uid://djnct3aboxv5o" path="res://scenes/space/biofuelconverter.tscn" id="1_svwaj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m2eh4"]
+load_path = "res://.godot/imported/Basic Crafting Table.png-96219706d994af199f7cf169a61f23d9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_om8tv"]
+atlas = SubResource("CompressedTexture2D_m2eh4")
+region = Rect2(144, 8, 16, 24)
+
+[resource]
+script = ExtResource("1_li37i")
+scene_to_place = ExtResource("1_svwaj")
+damage = 1
+action_type = 5
+source_plant_data_path = ""
+item_name = "BioFuelConverter"
+description = ""
+icon = SubResource("AtlasTexture_om8tv")
+stackable = true
+metadata/_custom_type_script = "uid://bpxw848fbm6jv"

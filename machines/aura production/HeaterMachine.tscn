@@ -1,0 +1,144 @@
+[gd_scene load_steps=23 format=3 uid="uid://8grlf8hvrbub"]
+
+[ext_resource type="Script" uid="uid://b620tm5r1pxam" path="res://machines/aura production/GenericAuraMachine.gd" id="1_23yik"]
+[ext_resource type="Resource" uid="uid://dffcsrdo7o7di" path="res://machines/recipes/heater_fuel_recipe.tres" id="2_26s7d"]
+[ext_resource type="Script" uid="uid://bt6illphij7k6" path="res://scripts/globals/HeatEffectData.gd" id="3_6tsel"]
+[ext_resource type="PackedScene" uid="uid://beaog5n0dxa5y" path="res://scenes/components/interactable_component.tscn" id="3_pxfqb"]
+[ext_resource type="PackedScene" uid="uid://cd0n4jrm0co4x" path="res://scenes/components/interactable_label_component.tscn" id="4_3b3in"]
+[ext_resource type="Texture2D" uid="uid://clgxtr6cle8rn" path="res://assets/game/objects/new planet/Furnace.png" id="4_qpbqe"]
+[ext_resource type="PackedScene" uid="uid://dagnc3wfs7lsb" path="res://scenes/components/feed_component.tscn" id="5_m5lrc"]
+[ext_resource type="PackedScene" uid="uid://bf8wlp2uixhjh" path="res://machines/logic/ProcessingMachineComponent.tscn" id="6_05abw"]
+[ext_resource type="Script" uid="uid://d4l1k1io1a3n5" path="res://machines/logic/machine_recipe.gd" id="9_jigur"]
+[ext_resource type="PackedScene" uid="uid://o3ukqh2xdtua" path="res://machines/aura production/MachineAura.tscn" id="14_danvh"]
+
+[sub_resource type="Resource" id="Resource_lafvh"]
+script = ExtResource("3_6tsel")
+emits_heat = true
+heat_power = 100.0
+heat_radius = 64.0
+burn_power = 0.0
+heat_sensitivity = 0.0
+metadata/_custom_type_script = "uid://bt6illphij7k6"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umtkn"]
+size = Vector2(23, 23)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_btho1"]
+atlas = ExtResource("4_qpbqe")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dqnmo"]
+atlas = ExtResource("4_qpbqe")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sw04a"]
+atlas = ExtResource("4_qpbqe")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nm8hk"]
+atlas = ExtResource("4_qpbqe")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bi0hu"]
+atlas = ExtResource("4_qpbqe")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_f1mue"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_btho1")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dqnmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sw04a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nm8hk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bi0hu")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3cnxf"]
+size = Vector2(37, 41)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_44sq4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ls05e"]
+bg_color = Color(0.336608, 0.336608, 0.336608, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c25li"]
+bg_color = Color(0, 0.717647, 0.352941, 1)
+
+[node name="HeaterMachine" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_23yik")
+fuel_recipe = ExtResource("2_26s7d")
+heat_effect_data = SubResource("Resource_lafvh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -11.5)
+shape = SubResource("RectangleShape2D_umtkn")
+debug_color = Color(0, 0.196078, 0.713726, 0.419608)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_f1mue")
+animation = &"off"
+autoplay = "off"
+frame_progress = 0.653265
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_pxfqb")]
+position = Vector2(3, -20)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(-4.5, 6.5)
+shape = SubResource("RectangleShape2D_3cnxf")
+debug_color = Color(0.151871, 0.628777, 0.419654, 0.42)
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_3b3in")]
+offset_left = -28.0
+offset_top = -45.0
+offset_right = -10.0
+offset_bottom = -27.0
+
+[node name="FeedComponent" parent="." instance=ExtResource("5_m5lrc")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FeedComponent"]
+shape = SubResource("CircleShape2D_44sq4")
+debug_color = Color(0.7416, 0.580644, 0.141262, 0.419608)
+
+[node name="ProcessingMachineComponent" parent="." instance=ExtResource("6_05abw")]
+accepted_recipes = Array[ExtResource("9_jigur")]([ExtResource("2_26s7d")])
+machine_type = &"HeaterMachine"
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -57.0
+offset_right = 39.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.5, 0.5)
+theme_override_styles/background = SubResource("StyleBoxFlat_ls05e")
+theme_override_styles/fill = SubResource("StyleBoxFlat_c25li")
+show_percentage = false
+
+[node name="MachineAura" parent="." instance=ExtResource("14_danvh")]

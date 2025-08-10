@@ -1,0 +1,164 @@
+[gd_resource type="Resource" script_class="PlantData" load_steps=28 format=3 uid="uid://bgc3ymb4tf8v8"]
+
+[ext_resource type="Script" uid="uid://b6isf51xji5ud" path="res://scripts/globals/plantdata.gd" id="1_3njbw"]
+[ext_resource type="Script" uid="uid://caa2jifiaeqh0" path="res://scripts/globals/GravityEffectData.gd" id="1_oqdq1"]
+[ext_resource type="Resource" uid="uid://dce87yl2m3jlr" path="res://scenes/objects/plants/corn_fruit.tres" id="1_ykp8u"]
+[ext_resource type="Script" uid="uid://cp0l8mepclpvf" path="res://scripts/globals/GrowthData.gd" id="2_lqwbx"]
+[ext_resource type="Texture2D" uid="uid://6vjmo4jrsif1" path="res://assets/game/objects/farming_plants.png" id="3_0gh80"]
+[ext_resource type="Script" uid="uid://uuuadwct7gp2" path="res://scripts/globals/HarvestData.gd" id="4_fgx2f"]
+[ext_resource type="Texture2D" uid="uid://c2xngbojvrgo7" path="res://assets/game/objects/Items/farming_plants_items.png" id="4_lxvxb"]
+[ext_resource type="Script" uid="uid://bt6illphij7k6" path="res://scripts/globals/HeatEffectData.gd" id="5_2xd8w"]
+[ext_resource type="Script" uid="uid://dgtqgj606gj6g" path="res://scripts/globals/LightEffectData.gd" id="6_sa8iu"]
+[ext_resource type="Script" uid="uid://1o5didd3c6kg" path="res://scripts/globals/OxygenEffectData.gd" id="9_sa8iu"]
+[ext_resource type="Resource" uid="uid://by2lm5ha28qag" path="res://scripts/lore/corn_lore.tres" id="9_tftjd"]
+[ext_resource type="Script" uid="uid://dxc8a5txh3fxm" path="res://scripts/globals/WaterPulseEffectData.gd" id="10_2xd8w"]
+
+[sub_resource type="Resource" id="Resource_tftjd"]
+script = ExtResource("1_oqdq1")
+has_gravity_effect = false
+gravity_influence = 0.0
+gravity_radius = 64.0
+gravity_sensitivity = 0.0
+wave_amplitude = 6.0
+wave_wavelength = 32.0
+wave_speed = 2.0
+metadata/_custom_type_script = "uid://caa2jifiaeqh0"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgx2f"]
+atlas = ExtResource("3_0gh80")
+region = Rect2(0, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xd8w"]
+atlas = ExtResource("3_0gh80")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sa8iu"]
+atlas = ExtResource("3_0gh80")
+region = Rect2(32, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tftjd"]
+atlas = ExtResource("3_0gh80")
+region = Rect2(48, 128, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jq51b"]
+atlas = ExtResource("4_lxvxb")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_msxl0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgx2f")
+}],
+"loop": true,
+"name": &"stage_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xd8w")
+}],
+"loop": true,
+"name": &"stage_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sa8iu")
+}],
+"loop": true,
+"name": &"stage_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tftjd")
+}],
+"loop": true,
+"name": &"stage_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jq51b")
+}],
+"loop": true,
+"name": &"stage_4",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_jq51b"]
+script = ExtResource("2_lqwbx")
+time_to_maturity = 4.0
+sprite_frames = SubResource("SpriteFrames_msxl0")
+metadata/_custom_type_script = "uid://cp0l8mepclpvf"
+
+[sub_resource type="Resource" id="Resource_msxl0"]
+script = ExtResource("4_fgx2f")
+harvest_item = ExtResource("1_ykp8u")
+min_yield = 1
+max_yield = 4
+metadata/_custom_type_script = "uid://uuuadwct7gp2"
+
+[sub_resource type="Resource" id="Resource_u5sm4"]
+script = ExtResource("5_2xd8w")
+emits_heat = false
+heat_power = 1.0
+heat_radius = 64.0
+burn_power = 0.0
+heat_sensitivity = 0.0
+metadata/_custom_type_script = "uid://bt6illphij7k6"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_tftjd"]
+load_path = "res://.godot/imported/farming_plants_items.png-f2537ff9fd91f24d499afe20f89ea626.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_msxl0"]
+atlas = SubResource("CompressedTexture2D_tftjd")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="Resource" id="Resource_5jqvi"]
+script = ExtResource("6_sa8iu")
+has_light_effect = false
+light_emission = 0.0
+light_color = Color(1, 1, 0.490196, 1)
+light_sensitivity = 0.0
+shimmer_duration = 2.5
+shimmer_min_factor = 0.8
+shimmer_max_factor = 1.2
+metadata/_custom_type_script = "uid://dgtqgj606gj6g"
+
+[sub_resource type="Resource" id="Resource_a6oqm"]
+script = ExtResource("9_sa8iu")
+emits_oxygen = false
+oxygen_power = 1.0
+oxygen_radius = 64.0
+oxygen_sensitivity = 0.1
+metadata/_custom_type_script = "uid://1o5didd3c6kg"
+
+[sub_resource type="Resource" id="Resource_sa8iu"]
+script = ExtResource("10_2xd8w")
+has_water_pulse_effect = false
+pulse_radius = 1
+pulse_duration = 3.0
+metadata/_custom_type_script = "uid://dxc8a5txh3fxm"
+
+[resource]
+script = ExtResource("1_3njbw")
+harvest_item = ExtResource("1_ykp8u")
+sprite_offset = Vector2(0, 0)
+growth_data = SubResource("Resource_jq51b")
+harvest_data = SubResource("Resource_msxl0")
+light_effect = SubResource("Resource_5jqvi")
+gravity_effect = SubResource("Resource_tftjd")
+heat_effect = SubResource("Resource_u5sm4")
+water_pulse_effect = SubResource("Resource_sa8iu")
+oxygen_effect = SubResource("Resource_a6oqm")
+min_heat = -20.0
+min_oxygen = -20.0
+min_gravity = -20.0
+lore_data = ExtResource("9_tftjd")
+item_name = "Maïs"
+description = ""
+icon = SubResource("AtlasTexture_msxl0")
+stackable = true
+metadata/_custom_type_script = "uid://b6isf51xji5ud"

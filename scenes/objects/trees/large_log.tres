@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://caednh1glrkf6"]
+
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="1_yc2mb"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_yc2mb"]
+load_path = "res://.godot/imported/trees_stumps_bushes.png-8d1e19634c102d5d4f97c32866d24f4e.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtoe2"]
+atlas = SubResource("CompressedTexture2D_yc2mb")
+region = Rect2(112, 96, 32, 16)
+
+[resource]
+script = ExtResource("1_yc2mb")
+damage = 1
+action_type = 0
+source_plant_data_path = ""
+item_name = "Bûche"
+description = ""
+icon = SubResource("AtlasTexture_vtoe2")
+stackable = true
+metadata/_custom_type_script = "uid://bpxw848fbm6jv"

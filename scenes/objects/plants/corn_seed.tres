@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://dlxrfh2t0atl7"]
+
+[ext_resource type="Texture2D" uid="uid://bx8av0euofc2q" path="res://assets/game/objects/Items/Basic_Plants.png" id="1_xyfgl"]
+[ext_resource type="Resource" uid="uid://bgc3ymb4tf8v8" path="res://scenes/objects/plants/corn_data.tres" id="2_xyfgl"]
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="3_2gumf"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ydtw6"]
+atlas = ExtResource("1_xyfgl")
+region = Rect2(2, 2, 12, 13)
+
+[resource]
+script = ExtResource("3_2gumf")
+damage = 1
+action_type = 3
+plant_to_grow = ExtResource("2_xyfgl")
+source_plant_data_path = ""
+item_name = "Graine de Maïs"
+description = "pour planter des graines de maïs"
+icon = SubResource("AtlasTexture_ydtw6")
+stackable = true

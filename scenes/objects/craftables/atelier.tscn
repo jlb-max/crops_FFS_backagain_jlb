@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dqqcyt4dcq0i0"]
+
+[ext_resource type="Texture2D" uid="uid://b5ofwn7oewi58" path="res://assets/game/objects/work_station.png" id="1_3pyk3"]
+[ext_resource type="PackedScene" uid="uid://beaog5n0dxa5y" path="res://scenes/components/interactable_component.tscn" id="3_yoj2q"]
+[ext_resource type="PackedScene" uid="uid://cd0n4jrm0co4x" path="res://scenes/components/interactable_label_component.tscn" id="4_1ui8c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_umtkn"]
+size = Vector2(30, 20)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hpcba"]
+radius = 18.1108
+
+[node name="Atelier" type="StaticBody2D"]
+y_sort_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_umtkn")
+debug_color = Color(0, 0.597456, 0.71442, 0.42)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_3pyk3")
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_yoj2q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(-3, 0)
+shape = SubResource("CircleShape2D_hpcba")
+debug_color = Color(0.151871, 0.628777, 0.419654, 0.42)
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_1ui8c")]
+offset_left = -25.0
+offset_top = -27.0
+offset_right = -7.0
+offset_bottom = -9.0

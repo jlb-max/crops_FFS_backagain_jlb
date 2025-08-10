@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://c6px0p22mqhy8"]
+
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="1_2816w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_2816w"]
+load_path = "res://.godot/imported/farming_plants_items.png-f2537ff9fd91f24d499afe20f89ea626.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8ogw1"]
+atlas = SubResource("CompressedTexture2D_2816w")
+region = Rect2(16, 144, 16, 16)
+
+[resource]
+script = ExtResource("1_2816w")
+damage = 1
+action_type = 0
+source_plant_data_path = ""
+item_name = "Gravitron"
+description = ""
+icon = SubResource("AtlasTexture_8ogw1")
+stackable = true
+metadata/_custom_type_script = "uid://bpxw848fbm6jv"

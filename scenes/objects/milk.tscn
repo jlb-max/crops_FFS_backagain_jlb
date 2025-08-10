@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://dyrus5sb22psi"]
+
+[ext_resource type="PackedScene" uid="uid://c3myk53pl1vm" path="res://scenes/components/collectable_component.tscn" id="1_e0olt"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h1788"]
+load_path = "res://.godot/imported/milk_n_grass_item_simple.png-828b6c243d8386b5be35e819fb75602d.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8f0fc"]
+atlas = SubResource("CompressedTexture2D_h1788")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o2iuq"]
+radius = 6.0
+
+[node name="Milk" type="Sprite2D"]
+texture = SubResource("AtlasTexture_8f0fc")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("1_e0olt")]
+collectable_name = "milk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_o2iuq")

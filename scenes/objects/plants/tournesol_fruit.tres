@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dnvcd480e6fx8"]
+
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="1_rret1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rret1"]
+load_path = "res://.godot/imported/Summer Crops.png-893b37b81c5866adf193823651b143fe.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xydrg"]
+atlas = SubResource("CompressedTexture2D_rret1")
+region = Rect2(144, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_rret1")
+damage = 1
+action_type = 0
+source_plant_data_path = ""
+item_name = "Tournesol"
+description = ""
+icon = SubResource("AtlasTexture_xydrg")
+stackable = true
+metadata/_custom_type_script = "uid://bpxw848fbm6jv"

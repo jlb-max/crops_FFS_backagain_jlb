@@ -1,0 +1,37 @@
+[gd_scene load_steps=7 format=3 uid="uid://goc2r5pjajyj"]
+
+[ext_resource type="Script" uid="uid://b5ky6aw1pd04g" path="res://scenes/ui/gauge.gd" id="1_5eyhb"]
+[ext_resource type="Texture2D" uid="uid://ditrah2qynd8a" path="res://assets/game/ui/texture_progress_bar_white_16x16.png" id="2_gvkvf"]
+
+[sub_resource type="Gradient" id="Gradient_i76ir"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.244776, 0.244776, 0.244776, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_eqokn"]
+gradient = SubResource("Gradient_i76ir")
+
+[sub_resource type="Gradient" id="Gradient_gvkvf"]
+offsets = PackedFloat32Array(0, 0.503205, 1)
+colors = PackedColorArray(0.956863, 0, 0, 1, 0.630866, 6.23775e-05, 0.52107, 1, 0.380392, 0, 0.545098, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_i76ir"]
+gradient = SubResource("Gradient_gvkvf")
+width = 256
+height = 16
+
+[node name="Gauge" type="HBoxContainer"]
+offset_right = 80.0
+offset_bottom = 16.0
+theme_override_constants/separation = 4
+script = ExtResource("1_5eyhb")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_gvkvf")
+
+[node name="Bar" type="TextureProgressBar" parent="."]
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+nine_patch_stretch = true
+texture_under = SubResource("GradientTexture1D_eqokn")
+texture_progress = SubResource("GradientTexture2D_i76ir")

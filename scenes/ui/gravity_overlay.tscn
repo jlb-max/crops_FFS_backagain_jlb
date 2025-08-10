@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://bdkqs82o3ge8u"]
+
+[ext_resource type="Script" uid="uid://cymsenn14j0u7" path="res://scenes/test/gravity_overlay.gd" id="1_hahuv"]
+[ext_resource type="Shader" uid="uid://bf072n2n88acs" path="res://scenes/objects/gravity_shader.gdshader" id="2_r217r"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_k8lsa"]
+shader = ExtResource("2_r217r")
+shader_parameter/radius_px = 64.0
+shader_parameter/strength = 0.35
+
+[node name="GravityOverlay" type="CanvasLayer"]
+layer = 100
+script = ExtResource("1_hahuv")
+
+[node name="WarpRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_k8lsa")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

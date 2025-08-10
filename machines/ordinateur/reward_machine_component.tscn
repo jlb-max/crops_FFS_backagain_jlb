@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c7twf2kcdb7ly"]
+
+[ext_resource type="Script" uid="uid://bj7o0ww367vpl" path="res://machines/ordinateur/reward_machine_component.gd" id="1_nvog7"]
+
+[node name="RewardMachineComponent" type="Node"]
+script = ExtResource("1_nvog7")

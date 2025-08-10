@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://dpnk7nactp8cf"]
+
+[ext_resource type="Texture2D" uid="uid://bi3f38q8ggviv" path="res://assets/game/objects/new planet/bonfire.png" id="1_6yd0x"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gd86b"]
+atlas = ExtResource("1_6yd0x")
+region = Rect2(0, 1, 16, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx33i"]
+atlas = ExtResource("1_6yd0x")
+region = Rect2(16, 1, 16, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eea6f"]
+atlas = ExtResource("1_6yd0x")
+region = Rect2(32, 1, 16, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kkxgh"]
+atlas = ExtResource("1_6yd0x")
+region = Rect2(48, 1, 16, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w8pgt"]
+atlas = ExtResource("1_6yd0x")
+region = Rect2(64, 1, 16, 30)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tpgt5"]
+atlas = ExtResource("1_6yd0x")
+region = Rect2(80, 1, 16, 30)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fjl0i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gd86b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx33i")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eea6f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kkxgh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w8pgt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tpgt5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ru6r1"]
+size = Vector2(14, 12)
+
+[sub_resource type="Gradient" id="Gradient_6yd0x"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_gd86b"]
+gradient = SubResource("Gradient_6yd0x")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(1, 0.5)
+
+[node name="FoyerExterieur" type="StaticBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -9)
+sprite_frames = SubResource("SpriteFrames_fjl0i")
+autoplay = "default"
+frame_progress = 0.796876
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_ru6r1")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+color = Color(0.906996, 0.638331, 0.291866, 1)
+texture = SubResource("GradientTexture2D_gd86b")

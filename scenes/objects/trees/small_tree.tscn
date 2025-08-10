@@ -1,0 +1,60 @@
+[gd_scene load_steps=12 format=3 uid="uid://1ba8mrtswdvh"]
+
+[ext_resource type="Shader" uid="uid://bx4d7ah5era7e" path="res://scenes/objects/shake.gdshader" id="1_w057i"]
+[ext_resource type="Script" uid="uid://b0v5qyub6s56e" path="res://scenes/objects/trees/small_tree.gd" id="2_g5iuu"]
+[ext_resource type="Texture2D" uid="uid://clupy5snr3vsl" path="res://assets/game/objects/new planet/PC _ Computer - Stardew Valley - Environment - Trees.png" id="2_skbjc"]
+[ext_resource type="PackedScene" uid="uid://1wyysx5dad3u" path="res://scenes/components/hurt_component.tscn" id="2_xyb6m"]
+[ext_resource type="PackedScene" uid="uid://vp158f76aul3" path="res://scenes/components/damage_component.tscn" id="3_au4vd"]
+[ext_resource type="Resource" uid="uid://d1y4wuo6h4v7j" path="res://scenes/objects/trees/small_log.tres" id="4_skbjc"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_skbjc"]
+resource_local_to_scene = true
+shader = ExtResource("1_w057i")
+shader_parameter/shake_intensity = 0.0
+shader_parameter/shake_speed = 20.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_elu1k"]
+atlas = ExtResource("2_skbjc")
+region = Rect2(0, 96, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_elu1k"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_elu1k")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_au4vd"]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_au4vd"]
+size = Vector2(8, 23)
+
+[node name="SmallTree" type="AnimatedSprite2D"]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_skbjc")
+position = Vector2(0, -11)
+sprite_frames = SubResource("SpriteFrames_elu1k")
+script = ExtResource("2_g5iuu")
+log_item_to_drop = ExtResource("4_skbjc")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, 8)
+shape = SubResource("CircleShape2D_au4vd")
+
+[node name="HurtComponent" parent="." instance=ExtResource("2_xyb6m")]
+required_action = 4
+
+[node name="HurtComponentCollisionShape2D" type="CollisionShape2D" parent="HurtComponent"]
+position = Vector2(0, 1.5)
+shape = SubResource("RectangleShape2D_au4vd")
+debug_color = Color(0.831288, 0.392025, 0.0146566, 0.42)
+
+[node name="DamageComponent" parent="." instance=ExtResource("3_au4vd")]
+max_damage = 3

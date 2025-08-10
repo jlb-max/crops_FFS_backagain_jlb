@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://1hc5etb0856x"]
+
+[ext_resource type="PackedScene" uid="uid://8grlf8hvrbub" path="res://machines/aura production/HeaterMachine.tscn" id="1_r0ck6"]
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="1_wuqqf"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_r0ck6"]
+load_path = "res://.godot/imported/Furnace.png-af6c6dda3e36c45f91a06e1bd3090c58.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6il1y"]
+atlas = SubResource("CompressedTexture2D_r0ck6")
+region = Rect2(0, 0, 32, 32)
+
+[resource]
+script = ExtResource("1_wuqqf")
+scene_to_place = ExtResource("1_r0ck6")
+damage = 1
+action_type = 5
+source_plant_data_path = ""
+item_name = "Chauffage"
+description = ""
+icon = SubResource("AtlasTexture_6il1y")
+stackable = true
+metadata/_custom_type_script = "uid://bpxw848fbm6jv"

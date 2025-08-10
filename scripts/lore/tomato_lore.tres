@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="LoreData" load_steps=2 format=3 uid="uid://cubngjtnr43p0"]
+
+[ext_resource type="Script" uid="uid://bkumg6gvortv4" path="res://scripts/lore/LoreData.gd" id="1_rfnub"]
+
+[resource]
+script = ExtResource("1_rfnub")
+full_text = "
+	# 2. On repeuple la liste de gauche (ce qui efface la sélection actuelle).
+	populate_plant_list()
+
+	# 3. On essaie de retrouver et de re-sélectionner l'item précédent.
+	if previously_selected_plant:
+		var new_index = plant_data_array.find(previously_selected_plant)
+		if new_index != -1:
+			# On sélectionne l'item dans la liste visuelle
+			plant_list.select(new_index)
+			# On appelle manuellement la fonction de mise à jour des détails
+			_on_plant_selected(new_index)
+			return # On a fini, pas besoin d'aller plus loin
+
+	# 4. Si rien n'était sélectionné ou si l'item a disparu, on sélectionne le premier de la liste.
+	if not plant_data_array.is_empty():
+		plant_list.select(0)
+		_on_plant_selected(0)
+	else:
+		# S'il n'y a plus rien dans la liste, on vide le panneau de droite.
+		plant_name_label.text = \"Aucune plante séquencée\"
+		progress_bar.value = 0"
+sequencing_points_required = 1
+metadata/_custom_type_script = "uid://bkumg6gvortv4"

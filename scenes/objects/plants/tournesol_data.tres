@@ -1,0 +1,190 @@
+[gd_resource type="Resource" script_class="PlantData" load_steps=28 format=3 uid="uid://cncwqou72y0pw"]
+
+[ext_resource type="Script" uid="uid://caa2jifiaeqh0" path="res://scripts/globals/GravityEffectData.gd" id="1_exfnu"]
+[ext_resource type="Script" uid="uid://cp0l8mepclpvf" path="res://scripts/globals/GrowthData.gd" id="2_ltknv"]
+[ext_resource type="Texture2D" uid="uid://c7kq3d6ygtjrg" path="res://assets/game/objects/crops_2/Summer Crops.png" id="3_ltknv"]
+[ext_resource type="Texture2D" uid="uid://i5atmg3akgkd" path="res://assets/game/objects/new planet/PC _ Computer - Stardew Valley - Environment - Crops.png" id="4_m0w6c"]
+[ext_resource type="Script" uid="uid://uuuadwct7gp2" path="res://scripts/globals/HarvestData.gd" id="5_s8it5"]
+[ext_resource type="Script" uid="uid://bt6illphij7k6" path="res://scripts/globals/HeatEffectData.gd" id="6_407ha"]
+[ext_resource type="Resource" uid="uid://dnvcd480e6fx8" path="res://scenes/objects/plants/tournesol_fruit.tres" id="6_m0w6c"]
+[ext_resource type="Script" uid="uid://dgtqgj606gj6g" path="res://scripts/globals/LightEffectData.gd" id="7_oljyb"]
+[ext_resource type="Script" uid="uid://1o5didd3c6kg" path="res://scripts/globals/OxygenEffectData.gd" id="8_ltknv"]
+[ext_resource type="Script" uid="uid://b6isf51xji5ud" path="res://scripts/globals/plantdata.gd" id="8_u35bp"]
+[ext_resource type="Script" uid="uid://dxc8a5txh3fxm" path="res://scripts/globals/WaterPulseEffectData.gd" id="9_bpkhd"]
+
+[sub_resource type="Resource" id="Resource_knfr2"]
+script = ExtResource("1_exfnu")
+has_gravity_effect = false
+gravity_influence = 0.0
+gravity_radius = 64.0
+gravity_sensitivity = 0.0
+wave_amplitude = 6.0
+wave_wavelength = 32.0
+wave_speed = 2.0
+metadata/_custom_type_script = "uid://caa2jifiaeqh0"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j2mxs"]
+atlas = ExtResource("3_ltknv")
+region = Rect2(0, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8it5"]
+atlas = ExtResource("3_ltknv")
+region = Rect2(16, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_407ha"]
+atlas = ExtResource("3_ltknv")
+region = Rect2(32, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oljyb"]
+atlas = ExtResource("3_ltknv")
+region = Rect2(48, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u35bp"]
+atlas = ExtResource("3_ltknv")
+region = Rect2(64, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bpkhd"]
+atlas = ExtResource("3_ltknv")
+region = Rect2(80, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6jx0j"]
+atlas = ExtResource("3_ltknv")
+region = Rect2(144, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oadgk"]
+atlas = ExtResource("4_m0w6c")
+region = Rect2(240, 384, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6o6u3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j2mxs")
+}],
+"loop": true,
+"name": &"stage_0",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s8it5")
+}],
+"loop": true,
+"name": &"stage_1",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_407ha")
+}],
+"loop": true,
+"name": &"stage_2",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oljyb")
+}],
+"loop": true,
+"name": &"stage_3",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u35bp")
+}],
+"loop": true,
+"name": &"stage_4",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bpkhd")
+}],
+"loop": true,
+"name": &"stage_5",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6jx0j")
+}],
+"loop": true,
+"name": &"stage_6",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oadgk")
+}],
+"loop": true,
+"name": &"stage_dead",
+"speed": 5.0
+}]
+
+[sub_resource type="Resource" id="Resource_8uqcu"]
+script = ExtResource("2_ltknv")
+time_to_maturity = 4.0
+sprite_frames = SubResource("SpriteFrames_6o6u3")
+metadata/_custom_type_script = "uid://cp0l8mepclpvf"
+
+[sub_resource type="Resource" id="Resource_vp28t"]
+script = ExtResource("5_s8it5")
+harvest_item = ExtResource("6_m0w6c")
+min_yield = 1
+max_yield = 3
+metadata/_custom_type_script = "uid://uuuadwct7gp2"
+
+[sub_resource type="Resource" id="Resource_dywq2"]
+script = ExtResource("6_407ha")
+emits_heat = false
+heat_power = 1.0
+heat_radius = 64.0
+burn_power = 0.0
+heat_sensitivity = 1.0
+metadata/_custom_type_script = "uid://bt6illphij7k6"
+
+[sub_resource type="Resource" id="Resource_gg6gw"]
+script = ExtResource("7_oljyb")
+has_light_effect = true
+light_emission = 0.3
+light_color = Color(1, 1, 0.490196, 1)
+light_sensitivity = 0.0
+shimmer_duration = 2.5
+shimmer_min_factor = 0.8
+shimmer_max_factor = 1.2
+metadata/_custom_type_script = "uid://dgtqgj606gj6g"
+
+[sub_resource type="Resource" id="Resource_m0w6c"]
+script = ExtResource("8_ltknv")
+emits_oxygen = false
+oxygen_power = 1.0
+oxygen_radius = 64.0
+oxygen_sensitivity = 0.0
+metadata/_custom_type_script = "uid://1o5didd3c6kg"
+
+[sub_resource type="Resource" id="Resource_pecr5"]
+script = ExtResource("9_bpkhd")
+has_water_pulse_effect = false
+pulse_radius = 1
+pulse_duration = 3.0
+metadata/_custom_type_script = "uid://dxc8a5txh3fxm"
+
+[resource]
+script = ExtResource("8_u35bp")
+harvest_item = ExtResource("6_m0w6c")
+sprite_offset = Vector2(1, -12)
+growth_data = SubResource("Resource_8uqcu")
+harvest_data = SubResource("Resource_vp28t")
+light_effect = SubResource("Resource_gg6gw")
+gravity_effect = SubResource("Resource_knfr2")
+heat_effect = SubResource("Resource_dywq2")
+water_pulse_effect = SubResource("Resource_pecr5")
+oxygen_effect = SubResource("Resource_m0w6c")
+min_heat = -50.0
+min_oxygen = -50.0
+min_gravity = -50.0
+item_name = "Tournesol"
+description = ""
+stackable = true
+metadata/_custom_type_script = "uid://b6isf51xji5ud"

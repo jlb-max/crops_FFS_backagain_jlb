@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://xrou4c8xrhkf"]
+
+[ext_resource type="Resource" uid="uid://e1sg8hu6p87x" path="res://scenes/objects/plants/star_data.tres" id="1_xvm45"]
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="2_kefo1"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_kefo1"]
+load_path = "res://.godot/imported/farming_plants_items.png-f2537ff9fd91f24d499afe20f89ea626.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kbjp"]
+atlas = SubResource("CompressedTexture2D_kefo1")
+region = Rect2(0, 208, 16, 16)
+
+[resource]
+script = ExtResource("2_kefo1")
+damage = 1
+action_type = 3
+plant_to_grow = ExtResource("1_xvm45")
+source_plant_data_path = ""
+item_name = "Graine de Lumina"
+description = ""
+icon = SubResource("AtlasTexture_7kbjp")
+stackable = true

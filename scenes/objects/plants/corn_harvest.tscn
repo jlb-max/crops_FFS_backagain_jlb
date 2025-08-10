@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bdffhcj6ur8eh"]
+
+[ext_resource type="PackedScene" uid="uid://c3myk53pl1vm" path="res://scenes/components/collectable_component.tscn" id="1_58h1w"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1k1sn"]
+load_path = "res://.godot/imported/farming_plants_items.png-f2537ff9fd91f24d499afe20f89ea626.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7itdg"]
+atlas = SubResource("CompressedTexture2D_1k1sn")
+region = Rect2(16, 128, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_56y6m"]
+radius = 5.38516
+
+[node name="CornHarvest" type="Sprite2D"]
+top_level = true
+texture = SubResource("AtlasTexture_7itdg")
+
+[node name="CollectableComponent" parent="." instance=ExtResource("1_58h1w")]
+collision_layer = 160
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+y_sort_enabled = true
+shape = SubResource("CircleShape2D_56y6m")

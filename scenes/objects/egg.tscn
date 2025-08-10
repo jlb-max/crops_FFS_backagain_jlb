@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dh1ydhcyar48l"]
+
+[ext_resource type="PackedScene" uid="uid://c3myk53pl1vm" path="res://scenes/components/collectable_component.tscn" id="1_oll6l"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_h452w"]
+load_path = "res://.godot/imported/egg_items.png-b7f84daf42e75dc673f78aaee5aa7480.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_twloa"]
+atlas = SubResource("CompressedTexture2D_h452w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oll6l"]
+radius = 7.0
+
+[node name="Egg" type="Sprite2D"]
+y_sort_enabled = true
+texture = SubResource("AtlasTexture_twloa")
+region_rect = Rect2(0, 0, 16, 16)
+
+[node name="CollectableComponent" parent="." instance=ExtResource("1_oll6l")]
+collectable_name = "egg"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CollectableComponent"]
+shape = SubResource("CircleShape2D_oll6l")

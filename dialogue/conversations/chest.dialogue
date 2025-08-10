@@ -1,0 +1,24 @@
+~ start_cow_pasture_box
+
+Pasture Box: [[Hi|Hello|Howdy]], your animals are hungry
+Pasture Box: Would you like to feed your cows?
+- Yes
+	Kupo: Yay, let's feed the cows!
+	do GameDialogueManager.action_feed_animals()
+- No
+	Kupo: No. Not now thanks.
+	
+=> END
+
+
+~ start_chicken_pasture_box
+
+Pasture Box: [[Hi|Hello|Howdy]], your animals are hungry
+Pasture Box: Would you like to feed your chickens?
+- Yes
+	Kupo: Yay, let's feed my chickens!
+	do GameDialogueManager.action_feed_animals()
+- No
+	Kupo: No. Not now thanks.
+	
+=> END

@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3wo7lepqiie6"]
+
+[ext_resource type="Script" uid="uid://cnrs1fb0yg5kr" path="res://scenes/environement/puzzle_trigger_component.gd" id="1_xyae8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2g4x"]
+size = Vector2(64, 64)
+
+[node name="PuzzleTriggerZone" type="Area2D"]
+collision_layer = 0
+collision_mask = 256
+script = ExtResource("1_xyae8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_x2g4x")
+debug_color = Color(0.953292, 0.191787, 0.266351, 0.42)

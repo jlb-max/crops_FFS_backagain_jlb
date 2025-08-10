@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=2 format=3 uid="uid://dsa4vs14yompe"]
+
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="1_k41ac"]
+
+[resource]
+script = ExtResource("1_k41ac")
+item_name = "Nouvel Item"
+description = ""
+stackable = true

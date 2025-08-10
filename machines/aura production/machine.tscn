@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://c28lpsriw3xrl"]
+
+[ext_resource type="Script" uid="uid://brkyj30allxtg" path="res://machines/aura production/machine.gd" id="1_onlhr"]
+[ext_resource type="Resource" uid="uid://1sb6bql4p1as" path="res://machines/biofuel/biofuel.tres" id="2_h1222"]
+[ext_resource type="Texture2D" uid="uid://b01y4at8eh5ya" path="res://assets/game/objects/new planet/PC _ Computer - Stardew Valley - Tilesets - Craftables.png" id="2_onlhr"]
+[ext_resource type="PackedScene" uid="uid://o3ukqh2xdtua" path="res://machines/aura production/MachineAura.tscn" id="4_fxyq2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxyq2"]
+atlas = ExtResource("2_onlhr")
+region = Rect2(80, 32, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2pk5n"]
+atlas = ExtResource("2_onlhr")
+region = Rect2(96, 32, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ghvdu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxyq2")
+}],
+"loop": true,
+"name": &"off",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2pk5n")
+}],
+"loop": true,
+"name": &"on",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u4vf0"]
+
+[node name="Machine" type="Area2D"]
+script = ExtResource("1_onlhr")
+biofuel_item = ExtResource("2_h1222")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ghvdu")
+animation = &"on"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_u4vf0")
+
+[node name="ConsumptionTimer" type="Timer" parent="."]
+
+[node name="MachineAura" parent="." instance=ExtResource("4_fxyq2")]
+
+[connection signal="timeout" from="ConsumptionTimer" to="." method="_on_consumption_timer_timeout"]

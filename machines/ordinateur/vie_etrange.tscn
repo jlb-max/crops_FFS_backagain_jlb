@@ -1,0 +1,99 @@
+[gd_scene load_steps=18 format=3 uid="uid://cf31ydiwgjnm2"]
+
+[ext_resource type="Script" uid="uid://c2ecl70hlcsv4" path="res://machines/ordinateur/monolithe_ancien.gd" id="1_tf7nn"]
+[ext_resource type="Texture2D" uid="uid://b01y4at8eh5ya" path="res://assets/game/objects/new planet/PC _ Computer - Stardew Valley - Tilesets - Craftables.png" id="2_61u5b"]
+[ext_resource type="PackedScene" uid="uid://beaog5n0dxa5y" path="res://scenes/components/interactable_component.tscn" id="3_a2tfs"]
+[ext_resource type="PackedScene" uid="uid://cd0n4jrm0co4x" path="res://scenes/components/interactable_label_component.tscn" id="4_ay5vk"]
+[ext_resource type="PackedScene" uid="uid://c7twf2kcdb7ly" path="res://machines/ordinateur/reward_machine_component.tscn" id="5_eq620"]
+[ext_resource type="Resource" uid="uid://dnvcd480e6fx8" path="res://scenes/objects/plants/tournesol_fruit.tres" id="6_tf7nn"]
+[ext_resource type="Script" uid="uid://cl4puo50cqmuf" path="res://machines/ordinateur/cumulative_reward.gd" id="7_1dlgf"]
+[ext_resource type="Resource" uid="uid://kdnwclrt1285" path="res://machines/ordinateur/recompense_palier_1.tres" id="8_21427"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x58ql"]
+radius = 6.5
+height = 13.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a2tfs"]
+atlas = ExtResource("2_61u5b")
+region = Rect2(0, 224, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay5vk"]
+atlas = ExtResource("2_61u5b")
+region = Rect2(16, 224, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eq620"]
+atlas = ExtResource("2_61u5b")
+region = Rect2(32, 224, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yrsi3"]
+atlas = ExtResource("2_61u5b")
+region = Rect2(48, 224, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1dlgf"]
+atlas = ExtResource("2_61u5b")
+region = Rect2(64, 224, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_21427"]
+atlas = ExtResource("2_61u5b")
+region = Rect2(80, 224, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tbtwb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a2tfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay5vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eq620")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yrsi3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1dlgf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_21427")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xlq0o"]
+radius = 18.0278
+
+[node name="VieEtrange" type="StaticBody2D"]
+y_sort_enabled = true
+script = ExtResource("1_tf7nn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6.5)
+shape = SubResource("CapsuleShape2D_x58ql")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -16)
+sprite_frames = SubResource("SpriteFrames_tbtwb")
+autoplay = "default"
+frame_progress = 0.948277
+
+[node name="InteractableComponent" parent="." instance=ExtResource("3_a2tfs")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractableComponent"]
+position = Vector2(-3, -10)
+shape = SubResource("CircleShape2D_xlq0o")
+debug_color = Color(0.116189, 0.633881, 0.385325, 0.42)
+
+[node name="InteractableLabelComponent" parent="." instance=ExtResource("4_ay5vk")]
+offset_left = -25.0
+offset_top = -39.0
+offset_right = -7.0
+offset_bottom = -21.0
+
+[node name="RewardMachineComponent" parent="." instance=ExtResource("5_eq620")]
+fuel_item = ExtResource("6_tf7nn")
+reward_tiers = Array[ExtResource("7_1dlgf")]([ExtResource("8_21427")])

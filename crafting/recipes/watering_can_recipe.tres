@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="CraftingRecipe" load_steps=10 format=3 uid="uid://hygnlv0n75jc"]
+
+[ext_resource type="Script" uid="uid://d31hsogdinq" path="res://crafting/ingredient.gd" id="1_1vinn"]
+[ext_resource type="Resource" uid="uid://d1y4wuo6h4v7j" path="res://scenes/objects/trees/small_log.tres" id="2_hi68f"]
+[ext_resource type="Resource" uid="uid://tm2vgs752rm6" path="res://scenes/objects/rocks/stone.tres" id="3_cnfm4"]
+[ext_resource type="Resource" uid="uid://ca5aaqc703xe8" path="res://scenes/objects/craftables/watering_can.tres" id="4_1vinn"]
+[ext_resource type="Resource" uid="uid://fs7qk5efetyr" path="res://scenes/objects/craftables/hoe.tres" id="4_vy07l"]
+[ext_resource type="Script" uid="uid://c6md6w4rnuthp" path="res://crafting/crafting_recipe.gd" id="5_n21d1"]
+
+[sub_resource type="Resource" id="Resource_b40ne"]
+script = ExtResource("1_1vinn")
+item = ExtResource("2_hi68f")
+quantity = 5
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[sub_resource type="Resource" id="Resource_ev24g"]
+script = ExtResource("1_1vinn")
+item = ExtResource("3_cnfm4")
+quantity = 5
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[sub_resource type="Resource" id="Resource_nk034"]
+script = ExtResource("1_1vinn")
+item = ExtResource("4_1vinn")
+quantity = 1
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[resource]
+script = ExtResource("5_n21d1")
+outputs = Array[ExtResource("1_1vinn")]([SubResource("Resource_nk034")])
+ingredients = Array[ExtResource("1_1vinn")]([SubResource("Resource_b40ne"), SubResource("Resource_ev24g")])
+recipe_id = &"watering_can"
+unlock_condition = 1
+unlocking_item = ExtResource("4_vy07l")
+unlocking_item = ExtResource("4_vy07l")
+metadata/_custom_type_script = "uid://c6md6w4rnuthp"

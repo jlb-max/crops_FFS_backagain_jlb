@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf8wlp2uixhjh"]
+
+[ext_resource type="Script" uid="uid://dofg7r1a57v1w" path="res://machines/logic/processing_machine_component.gd" id="1_nu30o"]
+
+[node name="ProcessingMachineComponent" type="Node"]
+script = ExtResource("1_nu30o")

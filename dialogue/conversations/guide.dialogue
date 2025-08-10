@@ -1,0 +1,15 @@
+~ start
+
+Kupo: [[Hi|Hello|Howdy]], nice to meet you!.
+Kupo: Welcome to your farm!.
+Kupo: You can see your cows are hungry!.
+Kupo: You need to grow some crops to feed them.
+Kupo: Here are some seeds to grow and some crops.
+- Take the crop seeds
+	Felix: Yeaaah I can grow some crops!
+	do GameDialogueManager.action_give_crop_seeds()
+	
+- No, I don't want them
+	Felix: I'm note ready to grow my farm yet.
+
+=> END

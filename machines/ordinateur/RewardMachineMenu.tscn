@@ -1,0 +1,50 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmwckryxuprqe"]
+
+[ext_resource type="Script" uid="uid://orrj1x2v467n" path="res://machines/ordinateur/reward_machine_menu.gd" id="1_2q766"]
+[ext_resource type="Theme" uid="uid://b3n8unqbh0or1" path="res://scenes/ui/game_ui_theme.tres" id="1_jhjc5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t5q5p"]
+bg_color = Color(0.180005, 0.180005, 0.180005, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fhhe0"]
+bg_color = Color(0.118519, 0.296331, 0.709818, 1)
+
+[node name="RewardMachineMenu" type="PanelContainer"]
+custom_minimum_size = Vector2(400, 300)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -150.0
+offset_right = 200.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_jhjc5")
+theme_type_variation = &"DarkWoodPanel"
+script = ExtResource("1_2q766")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "... besoin... aide....."
+horizontal_alignment = 1
+
+[node name="RequirementsContainer" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="CloseButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "fermer"
+
+[node name="ProgressBar" type="ProgressBar" parent="VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_t5q5p")
+theme_override_styles/fill = SubResource("StyleBoxFlat_fhhe0")
+show_percentage = false

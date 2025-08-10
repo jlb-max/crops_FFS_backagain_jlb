@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="MachineRecipe" load_steps=7 format=3 uid="uid://7b28738jws0i"]
+
+[ext_resource type="Script" uid="uid://d31hsogdinq" path="res://crafting/ingredient.gd" id="1_a15ng"]
+[ext_resource type="Resource" uid="uid://d1y4wuo6h4v7j" path="res://scenes/objects/trees/small_log.tres" id="2_kdnpw"]
+[ext_resource type="Resource" uid="uid://1hc5etb0856x" path="res://machines/aura production/heater_machine_item.tres" id="3_a15ng"]
+[ext_resource type="Script" uid="uid://d4l1k1io1a3n5" path="res://machines/logic/machine_recipe.gd" id="4_kqr7s"]
+
+[sub_resource type="Resource" id="Resource_vm27o"]
+script = ExtResource("1_a15ng")
+item = ExtResource("2_kdnpw")
+quantity = 1
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[sub_resource type="Resource" id="Resource_p8q4e"]
+script = ExtResource("1_a15ng")
+item = ExtResource("3_a15ng")
+quantity = 1
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[resource]
+script = ExtResource("4_kqr7s")
+unlock_condition = 0
+inputs = Array[ExtResource("1_a15ng")]([SubResource("Resource_vm27o")])
+outputs = Array[ExtResource("1_a15ng")]([SubResource("Resource_p8q4e")])
+processing_time_seconds = 5.0
+machine_type = &"Atelier"
+metadata/_custom_type_script = "uid://d4l1k1io1a3n5"

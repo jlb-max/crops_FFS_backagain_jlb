@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://c7p3yk3760o3s"]
+
+[ext_resource type="Resource" uid="uid://c3dji2e3pe1oc" path="res://scenes/objects/plants/carot_data.tres" id="1_pntpp"]
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="3_6yb7q"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_lkx48"]
+load_path = "res://.godot/imported/farming_plants_items.png-f2537ff9fd91f24d499afe20f89ea626.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7kbjp"]
+atlas = SubResource("CompressedTexture2D_lkx48")
+region = Rect2(0, 32, 16, 16)
+
+[resource]
+script = ExtResource("3_6yb7q")
+damage = 1
+action_type = 3
+plant_to_grow = ExtResource("1_pntpp")
+source_plant_data_path = ""
+item_name = "Graine de Carotte"
+description = ""
+icon = SubResource("AtlasTexture_7kbjp")
+stackable = true

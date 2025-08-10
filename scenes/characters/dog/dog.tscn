@@ -1,0 +1,107 @@
+[gd_scene load_steps=15 format=3 uid="uid://cruhxvhfs6l1n"]
+
+[ext_resource type="Script" uid="uid://byf8k0gx4wtd0" path="res://scenes/characters/cow/cow.gd" id="1_6v3cf"]
+[ext_resource type="Texture2D" uid="uid://bp4elx5mcciej" path="res://assets/game/objects/new planet/PC _ Computer - Stardew Valley - Animals - Dog (Grey).png" id="2_if816"]
+[ext_resource type="Script" uid="uid://bj8k1ugeneltl" path="res://scripts/state_machine/node_state_machine.gd" id="3_c8k1v"]
+[ext_resource type="Script" uid="uid://5btdxl1t7hur" path="res://scenes/characters/cow/idle_state.gd" id="4_swlj7"]
+[ext_resource type="Script" uid="uid://c1vicw7d4gfax" path="res://scenes/characters/cow/walk_state.gd" id="5_hdahj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jgau"]
+atlas = ExtResource("2_if816")
+region = Rect2(32, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2fch5"]
+atlas = ExtResource("2_if816")
+region = Rect2(64, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2mhi6"]
+atlas = ExtResource("2_if816")
+region = Rect2(96, 128, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbdol"]
+atlas = ExtResource("2_if816")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejhkt"]
+atlas = ExtResource("2_if816")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7clil"]
+atlas = ExtResource("2_if816")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16j5m"]
+atlas = ExtResource("2_if816")
+region = Rect2(96, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sja6w"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jgau")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2fch5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2mhi6")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbdol")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejhkt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7clil")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16j5m")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rggeg"]
+radius = 9.0
+
+[node name="Dog" type="CharacterBody2D"]
+script = ExtResource("1_6v3cf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+y_sort_enabled = true
+position = Vector2(0, -13)
+sprite_frames = SubResource("SpriteFrames_sja6w")
+animation = &"walk"
+autoplay = "idle"
+frame_progress = 0.700159
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -8)
+shape = SubResource("CircleShape2D_rggeg")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+navigation_layers = 2
+path_postprocessing = 1
+avoidance_enabled = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_node_state")]
+script = ExtResource("3_c8k1v")
+initial_node_state = NodePath("Idle")
+
+[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animated_sprite_2d")]
+script = ExtResource("4_swlj7")
+character = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+
+[node name="Walk" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "animated_sprite_2d", "navigation_agent_2d")]
+script = ExtResource("5_hdahj")
+character = NodePath("../..")
+animated_sprite_2d = NodePath("../../AnimatedSprite2D")
+navigation_agent_2d = NodePath("../../NavigationAgent2D")

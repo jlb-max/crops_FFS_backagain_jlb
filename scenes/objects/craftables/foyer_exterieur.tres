@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=5 format=3 uid="uid://br5u8bmue2efe"]
+
+[ext_resource type="PackedScene" uid="uid://dpnk7nactp8cf" path="res://scenes/objects/craftables/foyer_exterieur.tscn" id="1_rf1h0"]
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="1_tue4p"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_rf1h0"]
+load_path = "res://.godot/imported/bonfire.png-377159ca8fe7e0a609cb76aaeb5448a9.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yno2e"]
+atlas = SubResource("CompressedTexture2D_rf1h0")
+region = Rect2(0, 16, 16, 16)
+
+[resource]
+script = ExtResource("1_tue4p")
+scene_to_place = ExtResource("1_rf1h0")
+damage = 1
+action_type = 5
+item_name = "Foyer"
+description = ""
+icon = SubResource("AtlasTexture_yno2e")
+stackable = true
+metadata/_custom_type_script = "uid://bpxw848fbm6jv"

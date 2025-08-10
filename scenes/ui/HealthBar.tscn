@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=3 uid="uid://cnj3v48jns0ku"]
+
+[sub_resource type="Gradient" id="Gradient_vhms7"]
+offsets = PackedFloat32Array(0)
+colors = PackedColorArray(0.28485, 0.28485, 0.28485, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_5fhnc"]
+gradient = SubResource("Gradient_vhms7")
+width = 16
+
+[sub_resource type="Gradient" id="Gradient_23qt1"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(0.0784314, 1, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_7o0y7"]
+gradient = SubResource("Gradient_23qt1")
+width = 16
+
+[node name="HealthBar" type="TextureProgressBar"]
+value = 50.0
+texture_under = SubResource("GradientTexture1D_5fhnc")
+texture_progress = SubResource("GradientTexture1D_7o0y7")

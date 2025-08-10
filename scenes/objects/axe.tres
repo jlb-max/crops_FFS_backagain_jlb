@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="ItemData" load_steps=4 format=3 uid="uid://dfryw5ro6pd"]
+
+[ext_resource type="Script" uid="uid://bpxw848fbm6jv" path="res://scripts/globals/itemdata.gd" id="1_0btbj"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_n8h2h"]
+load_path = "res://.godot/imported/tools_n_material_items.png-8a044dcc96f8c3e02b83f9c507764188.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7hkbi"]
+atlas = SubResource("CompressedTexture2D_n8h2h")
+region = Rect2(16, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_0btbj")
+damage = 1
+action_type = 4
+source_plant_data_path = ""
+item_name = "Hache"
+description = ""
+icon = SubResource("AtlasTexture_7hkbi")
+stackable = true
+metadata/_custom_type_script = "uid://bpxw848fbm6jv"

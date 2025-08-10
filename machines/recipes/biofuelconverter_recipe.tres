@@ -1,0 +1,34 @@
+[gd_resource type="Resource" script_class="MachineRecipe" load_steps=9 format=3 uid="uid://c4uylvkp2bemm"]
+
+[ext_resource type="Script" uid="uid://d31hsogdinq" path="res://crafting/ingredient.gd" id="1_gd1r5"]
+[ext_resource type="Resource" uid="uid://tm2vgs752rm6" path="res://scenes/objects/rocks/stone.tres" id="2_mysth"]
+[ext_resource type="Resource" uid="uid://cq5ne6xby20em" path="res://scenes/objects/craftables/planche.tres" id="3_pf6oy"]
+[ext_resource type="Script" uid="uid://d4l1k1io1a3n5" path="res://machines/logic/machine_recipe.gd" id="4_nsaa7"]
+[ext_resource type="Resource" uid="uid://dvdbv6ptf3cau" path="res://machines/biofuel/biofuel_converter.tres" id="4_pf6oy"]
+
+[sub_resource type="Resource" id="Resource_vm27o"]
+script = ExtResource("1_gd1r5")
+item = ExtResource("2_mysth")
+quantity = 3
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[sub_resource type="Resource" id="Resource_nsaa7"]
+script = ExtResource("1_gd1r5")
+item = ExtResource("3_pf6oy")
+quantity = 10
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[sub_resource type="Resource" id="Resource_0nw2n"]
+script = ExtResource("1_gd1r5")
+item = ExtResource("4_pf6oy")
+quantity = 1
+metadata/_custom_type_script = "uid://d31hsogdinq"
+
+[resource]
+script = ExtResource("4_nsaa7")
+unlock_condition = 1
+inputs = Array[ExtResource("1_gd1r5")]([SubResource("Resource_vm27o"), SubResource("Resource_nsaa7")])
+outputs = Array[ExtResource("1_gd1r5")]([SubResource("Resource_0nw2n")])
+processing_time_seconds = 5.0
+machine_type = &"Atelier"
+metadata/_custom_type_script = "uid://d4l1k1io1a3n5"

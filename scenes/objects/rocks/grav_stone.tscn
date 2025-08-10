@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://rmscavw1ucl"]
+
+[ext_resource type="Texture2D" uid="uid://d0pcav8kwyr57" path="res://icon.svg" id="1_3jqbu"]
+[ext_resource type="Shader" uid="uid://iyiyk38h8sl4" path="res://scenes/objects/plants/gravity_ripple.gdshader" id="2_fc146"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ic45a"]
+shader = ExtResource("2_fc146")
+shader_parameter/frequency = 4.0
+shader_parameter/amplitude = 2.0
+shader_parameter/ripple_rate = 5.0
+shader_parameter/wave_amplitude = 0.05
+shader_parameter/wave_frequency = 4.0
+
+[node name="Node2D" type="Sprite2D"]
+texture = ExtResource("1_3jqbu")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_ic45a")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -64.0
+offset_right = -64.0
+offset_bottom = -64.0
+grow_horizontal = 2
+grow_vertical = 2

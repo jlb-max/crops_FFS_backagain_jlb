@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://boejlhiwl4577"]
+
+[ext_resource type="Script" uid="uid://bb7apx8ljeuhh" path="res://scenes/characters/player/player_status_component.gd" id="1_xv4i0"]
+
+[node name="StatusComponent" type="Node"]
+script = ExtResource("1_xv4i0")
+max_health = null
+max_oxygen = null
+max_heat = null
+max_gravity = null
